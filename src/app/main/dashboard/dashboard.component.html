@@ -1,0 +1,186 @@
+<div style="width: 100%; height: 100%;  background: #aab8c2;" fxLayoutAlign="center center">
+
+    <div style="width: 100%; height: auto;" >
+
+        <div style="width: auto; height: auto;" fxLayoutAlign="center center">
+
+            <mat-card style="background:#e1e8ed;"    (click)="openDialogLogistic()">
+                <mat-card-title>
+                    <h1>Logistic and Transportation</h1>
+                </mat-card-title>
+                <div fxLayoutAlign="center center">
+                    <button mat-raised-button matBadge="4" style="background: #1da1f2;">Lunes 06:11 pm </button>
+                </div>
+
+                    <mat-card class="view-alerts">
+                      <p>  <b>GPS: E324</b> Zona de alerta: Anillo Periférico (Valle de México)</p>
+                    </mat-card>
+                    <mat-card class="view-alerts">
+                       <p> <b>GPS: E856</b> Zona de alerta: Avenida de los Insurgentes. </p>
+                    </mat-card>
+            </mat-card>
+
+            <mat-card style="background: #e1e8ed;"   (click)="openDialogIncidents()">
+                <mat-card-title>
+                    <h1>Incidents and Management Alerts</h1>
+                </mat-card-title>
+                <div fxLayoutAlign="center center">
+                    <button mat-raised-button matBadge="2" style="background: #1da1f2;">Lunes 06:11 pm </button>
+                </div>
+
+                <div>
+                    <mat-card class="view-alerts">
+                       <p>Emisora CPR La Primera @cprlaprimera · 28 oct. 2020 ¡CIERRE DE CALLELuz giratoria de coches de policía! A esta hora se registra un cierre de vía a la altura de la segunda entrada de Nvo. México.</p> 
+                    </mat-card>
+                    <mat-card class="view-alerts">
+                      <p> C5 Estado de México @C5Edomex · 2h #PrecauciónVialSeñal de peligro|La @SS_Edomex mediante cámaras Cámara de cinedel @C5Edomex visualiza #TránsitoLento derivado de un #Accidente sobre Paseo Tollocan y San Jerónimo #Toluca provocando #AsentamientoVial con
+                        afectación de 3.4 kilómetros, dirección Toluca. Servicios de #EmergenciaCoche de policíaAmbulanciaen la zona.
+                     </p> 
+                    </mat-card>
+                </div>
+
+                <!-- <div fxLayoutAlign="right right">
+                    <div style="width: 100%; height: 100%; " fxLayoutAlign="right right">
+                        <mat-card class="modulos">
+                            Tráfico Expreso @TraficoExpreso · 1h DISTRITO NACIONAL / Ciudadanos a modo de protesta se concentran en la Av. Dr. Delgado con Av. México en sentido Norte - Sur, tránsito congestionado en esta dirección. Agentes de la @digesettrd viabilizando en el lugar.
+                            #TráficoExpreso
+                        </mat-card>
+                        <mat-card class="modulos">
+                            URBANO @urbano_noticias · 20h #Elecciones2021 Señal de StopSeñal de Stop Por manifestación frente a instalaciones del @PRIdePUEBLA esta bloqueado el carril de @RUTA_Puebla . Urbano | Noticias México
+                        </mat-card>
+                    </div>
+                </div> -->
+            </mat-card>
+
+            <mat-card style="background: #e1e8ed;"   (click)="openDialogSecurity()">
+                <mat-card-title>
+                    <h1> Security Alarms and Panic Button</h1>
+                </mat-card-title>
+                <div fxLayoutAlign="center center">
+                    <button mat-raised-button matBadge="17" style="background: #1da1f2;">Lunes 06:11 pm </button>
+                </div>
+
+                <div>
+                    <mat-card class="view-alerts">
+                        <p><span style="color: red;">Botón de Pánico Activado</span> <br></p>
+                        <p><b>Conductor: </b> Julio Aparicio <br></p>
+                        <p>  <b>Vehiculo:</b> mercedes antos  </p>
+ 
+                    </mat-card>
+                    <mat-card class="view-alerts">
+                        <p><span style="color: red;">Botón de Pánico Activado</span> <br></p>
+                        <p> <b>Conductor: </b> Gilberto Sanchez<br></p>
+                        <p> <b>Vehiculo: </b> MAN TGS</p>
+                    </mat-card>
+                </div>
+
+            </mat-card>
+
+        </div>
+
+        <div style="width: auto; height: auto;" fxLayoutAlign="center center">
+
+            <mat-card style="background:     #e1e8ed;"  (click)="openDialogVehicleTracking()">
+                <mat-card-title>
+                    <h1>Vehicle Tracking System</h1>
+                </mat-card-title>
+                <div fxLayoutAlign="center center">
+                    <button mat-raised-button matBadge="4" style="background: #1da1f2;">Lunes 06:11 pm </button>
+                </div>
+
+                <div>
+                    <mat-card class="view-alerts">
+                        <p>   <b>Condutor: </b> Roberto Gomez <br></p>
+                     <p>    <b>Vehículo: </b> Hyundai HD78 <br></p>
+                    <p> <b>Velocidad: </b> 90 km/h</p>
+                    </mat-card>
+                    <mat-card class="view-alerts">
+                        <p> <b>Condutor: </b> Rafael Hernández <br></p>
+                       <p>  <b>Vehiculo: </b> Chevrolet Announces <br></p>
+                      <p>      <b>Velocidad: </b> 100 km/h</p>
+                    </mat-card>
+                </div>
+
+                <!-- <div fxLayoutAlign="right right">
+                    <div style="width: 100%; height: 100%; " fxLayoutAlign="right right">
+                        <mat-card class="modulos">
+                            <b>Condutor: </b> Julio Aparicio
+                            <b>Vehiculo: </b> mercedes antos
+                            <b>Velocidad: </b> 80 km/h
+                        </mat-card>
+                        <mat-card class="modulos">
+                            <b>Condutor: </b> Gilberto Sanchez
+                            <b>Vehiculo: </b> MAN TGS
+                            <b>Velocidad: </b> 180 km/h
+                        </mat-card>
+                    </div>
+                </div> -->
+            </mat-card>
+
+            <mat-card style="background:     #e1e8ed;"  (click)="openDialogEmergencyEmployee()">
+                <mat-card-title>
+                    <h1>Emergency Employee Number</h1>
+                </mat-card-title>
+                <div fxLayoutAlign="center center">
+                    <button mat-raised-button matBadge="3" style="background: #1da1f2;">Lunes 06:11 pm </button>
+                </div>
+                <div fxLayoutAlign="right right">
+                    <div style="width: 100%; height: 100%; ">
+                        <mat-card class="view-alerts">
+                            <p>  <b>Ejecutivo:</b> Rafael Ramirez <br></p>
+                          <p>  <b>Mensaje:</b> <br></p>
+                        </mat-card>
+                        <mat-card class="view-alerts">
+                            <p><b>Ejecutivo:</b> Alfonso Gutierrez <br></p>
+                            <p> <b>Mensaje:</b> <br></p>
+                        </mat-card>
+                    </div>
+                </div>
+                <!-- <div fxLayoutAlign="right right">
+                    <div style="width: 100%; height: 100%; " fxLayoutAlign="right right">
+                        <mat-card class="modulos">
+                            Tráfico Expreso @TraficoExpreso · 1h DISTRITO NACIONAL / Ciudadanos a modo de protesta se concentran en la Av. Dr. Delgado con Av. México en sentido Norte - Sur, tránsito congestionado en esta dirección. Agentes de la @digesettrd viabilizando en el lugar.
+                            #TráficoExpreso
+                        </mat-card>
+                        <mat-card class="modulos">
+                            URBANO @urbano_noticias · 20h #Elecciones2021 Señal de StopSeñal de Stop Por manifestación frente a instalaciones del @PRIdePUEBLA esta bloqueado el carril de @RUTA_Puebla . Urbano | Noticias México
+                        </mat-card>
+                    </div>
+                </div> -->
+            </mat-card>
+
+            <mat-card style="background:     #e1e8ed;" >
+                <mat-card-title>
+                    <h1>CCTV</h1>
+                </mat-card-title>
+                <div fxLayoutAlign="center center">
+                    <button mat-raised-button matBadge="10" style="background: #1da1f2;">Lunes 06:11 pm </button>
+                </div>
+                <div>
+                    <div style="width: 100%; height: 100%; ">
+                        <mat-card class="view-alerts" (click)="openDialogCctv()">
+                         <p>  Detección de movimiento de mercancía no autorizada.</p>
+                        </mat-card>
+                        <mat-card class="view-alerts">
+                            <p> Detección de persona con arma blanca.</p>
+                        </mat-card>
+                    </div>
+                </div>
+                <!-- <div fxLayoutAlign="right right">
+                    <div style="width: 100%; height: 100%; " fxLayoutAlign="right right">
+                        <mat-card class="modulos">
+                            Tráfico Expreso @TraficoExpreso · 1h DISTRITO NACIONAL / Ciudadanos a modo de protesta se concentran en la Av. Dr. Delgado con Av. México en sentido Norte - Sur, tránsito congestionado en esta dirección. Agentes de la @digesettrd viabilizando en el lugar.
+                            #TráficoExpreso
+                        </mat-card>
+                        <mat-card class="modulos">
+                            URBANO @urbano_noticias · 20h #Elecciones2021 Señal de StopSeñal de Stop Por manifestación frente a instalaciones del @PRIdePUEBLA esta bloqueado el carril de @RUTA_Puebla . Urbano | Noticias México
+                        </mat-card>
+                    </div>
+                </div> -->
+            </mat-card>
+
+        </div>
+
+    </div>
+
+</div>

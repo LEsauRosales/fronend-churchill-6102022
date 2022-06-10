@@ -1,0 +1,31 @@
+th {
+    background: #bbdeff;
+}
+
+table th {
+    cursor: pointer;
+    text-align: center;
+    top: 0;
+    position: sticky;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.table-home td {
+    width: 10%;
+    word-break: break-word;
+    padding-left: 1%;
+    padding-right: 1%;
+    cursor: pointer;
+}
+
+.table-home {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    height: 40vh;
+}
+
+.table:hover {
+    cursor: pointer;
+}

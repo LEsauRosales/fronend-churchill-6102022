@@ -1,0 +1,86 @@
+<div style="width: auto; height: 92vh;">
+
+    <div fxLayoutAlign="end end">
+        <button mat-flat-button color="warn" mat-dialog-close>X</button>
+    </div>
+
+    <div fxLayoutAlign="center center">
+        <h1>Security Alarms Panic Button</h1>
+    </div>
+    <hr>
+
+    <!-- Mapa y Formulario-->
+    <div fxLayoutAlign="space-around center">
+        <!-- Mapa -->
+        <mat-card style="width: auto; height: auto; background: #e1e6eb; margin-right: 1%;margin-bottom: 2%;">
+            <h2 fxLayoutAlign="center center">Ubicación del evento</h2>
+            <div>
+                <agm-map [latitude]="lat" [longitude]="lng">
+                    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                </agm-map>
+            </div>
+        </mat-card>
+
+        <!-- Formulario -->
+        <mat-card style="width: auto; height: auto;  background: #e1e6eb;  margin-bottom: 2%;">
+
+            <mat-card style="width: 100%; height: auto; margin-bottom: 2%; border: solid 1px rgb(97, 97, 97);">
+                <mat-card-title fxLayoutAlign="space-around center">
+                    <h1> <b> Ticket: </b> #1548</h1>
+                    <h1> <b> Vehículo: </b>658</h1>
+                </mat-card-title>
+                <hr>
+            </mat-card>
+
+            <mat-card fxLayout="column" style="background: #e3edf3; width: 50vh; border: solid 1px rgb(136, 136, 136); ">
+                <div fxLayoutAlign="center center">
+                    <h1> <b> Reporte de incidencia </b></h1>
+                </div>
+                <form>
+                    <div>
+                        <mat-label>Tipo de incidencia</mat-label>
+                        <input class="form-control" type="text">
+                    </div>
+
+                    <div>
+                        <mat-label>Origen de incidencia</mat-label>
+                        <input class="form-control" type="text">
+                    </div>
+
+                    <div>
+                        <mat-label>Personal Asociado</mat-label>
+                        <input class="form-control" type="text">
+                    </div>
+
+                    <div>
+                        <mat-label>Ubicación</mat-label>
+                        <input class="form-control" type="text">
+                    </div>
+
+                    <div>
+                        <mat-label>Causa de la Incidencia</mat-label>
+                        <input class="form-control" type="text">
+                    </div>
+
+                    <div>
+                        <mat-label>Protocolo a seguir</mat-label>
+                        <input class="form-control" type="text">
+                    </div>
+
+                    <div>
+                        <mat-label>Solución de la Incidencia</mat-label>
+                        <input class="form-control" type="text">
+                    </div>
+
+                    <div fxLayoutAlign="center center" style="margin-top: 5%;">
+                        <button mat-raised-button style=" background: #00acee; ">Agregar Reporte de Incidencia</button>
+                    </div>
+
+                </form>
+
+            </mat-card>
+
+        </mat-card>
+    </div>
+
+</div>

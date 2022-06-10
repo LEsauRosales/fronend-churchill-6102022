@@ -1,0 +1,64 @@
+table th {
+    background: #bbdeff;
+    text-align: start;
+    justify-content: start;
+    top: 0;
+    position: sticky;
+    white-space: nowrap;
+    padding: 0 10px;
+    font-weight: bold;
+    color: rgb(12, 11, 11);
+}
+
+table td {
+    justify-content: start;
+    text-align: start;
+    white-space: wrap;
+    padding: 0 10px;
+}
+
+
+.table-home {
+    display: block;
+    height: 40vh;
+    overflow: auto;
+}
+
+.table-home:hover {
+    overflow-y: scroll
+}
+
+.table:hover {
+    cursor: pointer;
+}
+
+.table {
+    height: auto;
+    width: max-content;
+    max-width: 100%;
+    text-align: left;
+    overflow: hidden;
+    position: relative;
+    margin: 2%;
+}
+
+
+mat-icon,
+mat-label {
+    cursor: pointer;
+}
+
+mat-label {
+    font-weight: bolder;
+    color: black;
+}
+
+mat-icon,
+mat-label {
+    cursor: pointer;
+}
+
+mat-label {
+    font-weight: bolder;
+    color: black;
+}

@@ -1,0 +1,47 @@
+th {
+    background: #bbdeff;
+}
+
+table th {
+    cursor: pointer;
+    text-align: center;
+    top: 0;
+    position: sticky;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.table-home td {
+    word-break: break-word;
+    padding-left: 1%;
+    padding-right: 1%;
+    overflow: auto;
+    width: auto;
+}
+
+.table-home {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    height: 20vh;
+}
+
+.table:hover {
+    cursor: pointer;
+}
+
+// mat-grid-list {
+//     width: 95vw;
+//     height: 50vh;
+// }
+mat-card {
+    width: 30vw;
+    height: 40vh;
+    margin: 2%;
+    border: 1px solid #8a8da0;
+}
+
+mat-card-content {
+    height: 100%;
+    width: 100%;
+}

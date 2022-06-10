@@ -1,0 +1,63 @@
+agm-map {
+    width: 30vw;
+    height: 74vh;
+}
+
+th {
+    background: #bbdeff;
+}
+
+table th {
+    cursor: pointer;
+    text-align: center;
+    top: 0;
+    position: sticky;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.table-home td {
+    word-break: break-word;
+    padding-left: 1%;
+    padding-right: 1%;
+    overflow: auto;
+    width: 15%;
+}
+
+.table-home {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    height: 25vh;
+}
+
+.table:hover {
+    cursor: pointer;
+}
+
+mat-icon,
+mat-label {
+    cursor: pointer;
+}
+
+body {
+    background: #f2f2f2;
+    font-family: Arial, Sans-serif;
+}
+
+.formulario input[type="text"],
+.formulario input[type="email"] {
+    border: 1px solid #bbdeff;
+    font-family: Arial;
+    width: 19vw;
+    padding: 3%;
+}
+
+mat-label {
+    font-weight: bolder;
+    color: black;
+}
+
+mat-card {
+    border: 1px solid rgb(187, 184, 184);
+}

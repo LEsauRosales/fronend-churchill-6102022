@@ -1,0 +1,30 @@
+agm-map {
+    width: 40vw;
+    height: 50vh;
+}
+
+td,
+th {
+    border: 1px solid #9ba7eb;
+    padding: 1%;
+    border: 1px solid #9ba7eb;
+    margin: 2%;
+}
+
+tbody {
+    display: inline-block;
+    overflow: scroll;
+    text-align: center;
+}
+
+th {
+    background-color: #bbdeff;
+}
+
+table {
+    display: inline-block;
+    overflow: scroll;
+    text-align: center;
+    margin: 5%;
+    cursor: pointer;
+}

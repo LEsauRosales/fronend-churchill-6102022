@@ -1,0 +1,78 @@
+<div fxLayoutAlign="end end" style="margin-bottom: 2%;">
+    <button mat-flat-button color="warn" mat-dialog-close>X</button>
+</div>
+
+<div>
+    <div fxLayoutAlign="center center">
+        <h1>Vehicle Tracking System</h1>
+    </div>
+    <hr>
+    <div fxLayoutAlign="center center">
+        <h2>Ice Cream</h2>
+    </div>
+</div>
+
+<div fxLayoutAlign="right right" style="height: auto; width: auto;">
+
+    <mat-card style="width: 100%; height: 100%; background: #e1e6eb;">
+
+        <div fxLayoutAlign="space-around">
+            <mat-form-field appearance="legacy" fxLayoutAlign="center center">
+                <mat-label>
+                    Buscar
+                </mat-label>
+                <input matInput placeholder="Ingrese Dato" (keyup)="applyFilter($event)" #input>
+                <mat-icon matSuffix style="color: #1da1f2">search</mat-icon>
+            </mat-form-field>
+        </div>
+
+        <div fxLayoutAlign="center center">
+            <div class="table mat-elevation-z8">
+
+                <table mat-table [dataSource]="dataSource" matSort class="table-home">
+
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Id</th>
+                        <td mat-cell *matCellDef="let row" (click)="openDialogVehicleDetails() "> {{row.id}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="economico">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Económico</th>
+                        <td mat-cell *matCellDef="let row" (click)="openDialogVehicleDetails() "> {{row.economico}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="conductor">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Conductor </th>
+                        <td mat-cell *matCellDef="let row" (click)="openDialogVehicleDetails() "> {{row.conductor}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="velocidad">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Velocidad </th>
+                        <td mat-cell *matCellDef="let row" (click)="openDialogVehicleDetails() "> {{row.velocidad}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="incidencia">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo de Incidencia </th>
+                        <td mat-cell *matCellDef="let row" (click)="openDialogVehicleDetails() "> {{row.incidencia}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="fecha">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
+                        <td mat-cell *matCellDef="let row" (click)="openDialogVehicleDetails() "> {{row.fecha}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No se encontró información de "{{input.value}}"</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+
+        <mat-paginator fxLayoutAlign="center center" style="background: #e1e6eb; color: black;  font-weight: bold;" [pageSizeOptions]="[8, 10, 20, 100]"></mat-paginator>
+
+    </mat-card>
+</div>

@@ -1,0 +1,47 @@
+mat-card{
+     margin: 1%;
+    text-align: center;
+    color: #aab8c2;
+    cursor: pointer;
+    width: 30vw;
+    height: 40vh;  
+}
+
+button {
+margin: 3%;
+}
+
+mat-card-title {
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+}
+
+.alertas:hover {
+    overflow: scroll;
+}
+
+.view-alerts {
+    width: 100%;
+    height: 10vh;
+    overflow: hidden;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    color: #657786;
+    margin-bottom: 2%;
+}
+
+.view-alerts:hover {
+    overflow: scroll;
+}
+
+// .view-alerts-infohub {
+//     width: 16vw;
+//     height: 10vh;
+//     overflow: hidden;
+//     margin-bottom: 5%;
+// }

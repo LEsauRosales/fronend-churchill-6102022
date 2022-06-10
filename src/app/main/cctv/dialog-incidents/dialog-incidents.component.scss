@@ -1,0 +1,43 @@
+th {
+    background: #bbdeff;
+}
+
+table th {
+    cursor: pointer;
+    text-align: center;
+    top: 0;
+    position: sticky;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.table-home td {
+    word-break: break-word;
+    padding-left: 1%;
+    padding-right: 1%;
+    overflow: auto;
+    width: auto;
+}
+
+.table-home {
+    display: block;
+
+    overflow: auto;
+    height: 20vh;
+}
+
+.table:hover {
+    cursor: pointer;
+}
+
+.table {
+    width: 50vw;
+}
+
+mat-card {
+    width: 100%;
+    height: 100%;
+    margin: 2%;
+    border: 1px solid #8a8da0;
+}
+

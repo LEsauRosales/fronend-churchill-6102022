@@ -1,0 +1,91 @@
+agm-map {
+    width: 45vw;
+    height: 65vh;
+}
+
+th {
+    background: #bbdeff;
+    text-align: center;
+    text-justify: center;
+}
+
+table th {
+    cursor: pointer;
+    text-align: center;
+    text-justify: center;
+    top: 0;
+    position: sticky;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.table-home td {
+    word-break: break-word;
+    padding-left: 1%;
+    padding-right: 1%;
+    overflow: auto;
+    width: auto;
+}
+
+.table-home th {
+    text-align: center;
+    text-justify: center;
+}
+
+.table-home {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    height: 20vh;
+    text-align: center;
+    text-justify: center;
+}
+
+.table:hover {
+    cursor: pointer;
+}
+
+input {
+    display: block;
+    color: rgb(167, 162, 162);
+}
+
+input[type="text"],
+input[type="email"] {
+    padding: 1%;
+    border: 1px solid #226fc1;
+    font-family: Arial;
+    margin: 1%;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background: #4fb560;
+    color: #fff;
+}
+
+mat-label {
+    font-weight: bolder;
+    color: black;
+    width: 100%;
+}
+
+mat-label {
+    font-weight: bolder;
+    color: black;
+}
+
+mat-icon,
+mat-label {
+    cursor: pointer;
+}
+
+.form {
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin: 1%;
+}

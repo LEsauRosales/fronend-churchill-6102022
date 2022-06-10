@@ -1,0 +1,46 @@
+<div fxLayoutAlign="end end" style="margin-bottom: 2%;">
+    <button mat-flat-button color="warn" mat-dialog-close>X</button>
+</div>
+
+<mat-card style="width: auto; height: auto;  background: #e1e6eb;  margin-bottom: 2%;">
+
+    <mat-card fxLayout="column" style="background: #e3edf3; width: 50vh; border: solid 1px rgb(136, 136, 136); ">
+        <h1 fxLayoutAlign="center center"> <b> Analítico Detonado </b></h1>
+
+        <form>
+            <div>
+                <mat-label>Nombre de la Planta:</mat-label>
+                <input class="form-control" type="text">
+            </div>
+
+            <div>
+                <mat-label>Nivel de Riesgo:</mat-label>
+                <input class="form-control" type="text">
+            </div>
+
+            <div>
+                <mat-label>Protoloco de Resolución:</mat-label>
+                <input class="form-control" type="text">
+            </div>
+
+            <div>
+                <mat-label>Analítico Detonado:</mat-label>
+                <input class="form-control" type="text">
+            </div>
+
+            <div>
+                <mat-label>Detalle:</mat-label>
+                <div fxLayoutAlign="center center">
+                    <textarea class="form-control" placeholder="Describe el evento sucedido" id="" style="max-width: 20vw; max-height: 25vh; margin: 2%;" cols="60"></textarea>
+                </div>
+            </div>
+
+            <div fxLayoutAlign="center center" style="margin-top: 5%;">
+                <button mat-raised-button style=" background: #00acee;">Guardar</button>
+            </div>
+
+        </form>
+
+    </mat-card>
+
+</mat-card>

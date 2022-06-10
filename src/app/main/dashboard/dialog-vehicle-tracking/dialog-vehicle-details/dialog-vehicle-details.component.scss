@@ -1,0 +1,45 @@
+agm-map {
+    width: 50vw;
+    height: 55vh;
+}
+
+th {
+    background: #bbdeff;
+}
+
+table th {
+    cursor: pointer;
+    text-align: center;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.table-home td {
+    width: 100%;
+    height: 100%;
+}
+
+.table-home {
+    width: 20vw;
+    height: 100%;
+}
+
+.table:hover {
+    cursor: pointer;
+}
+
+mat-label {
+    font-weight: bolder;
+    color: black;
+}
+
+mat-icon,
+mat-label {
+    cursor: pointer;
+}
+
+.align {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}

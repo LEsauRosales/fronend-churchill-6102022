@@ -1,0 +1,92 @@
+<div style="width: auto; height: 85vh;">
+
+    <div fxLayoutAlign="end end">
+        <button mat-flat-button color="warn" mat-dialog-close>X</button>
+    </div>
+
+    <div>
+        <div fxLayoutAlign="center center">
+            <h1>Vehicle Tracking System</h1>
+        </div>
+        <hr>
+        <div fxLayoutAlign="center center">
+            <h2>Ice Cream</h2>
+        </div>
+    </div>
+
+    <div fxLayoutAlign="right right">
+
+        <mat-card style="width: 100%; height: auto; background: #e1e6eb; margin-right: 1%;">
+            <h2 fxLayoutAlign="center center">Ubicación del evento</h2>
+            <div>
+                <agm-map [latitude]="lat" [longitude]="lng">
+                    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                </agm-map>
+            </div>
+        </mat-card>
+
+
+        <mat-card style="width: 100%; height: auto; background: #e1e6eb; margin-right: 1%; display: flex; align-items: center;">
+
+            <mat-card style="width: 100%; height: auto; ">
+                <div>
+                    <h2 fxLayoutAlign="center center">Usuario Relacionado</h2>
+                </div>
+                <hr>
+                <mat-card-content style="width: max-content; height: auto;">
+                    <p> <b> Económico:</b> 1258</p>
+                    <p> <b> Conductor: </b> Roberto García</p>
+                    <p> <b> Velocidad: </b> 90 km/h</p>
+                    <p> <b> Tipo de Incidencia: </b> Desvío de ruta</p>
+                    <p> <b> Fecha: </b> 14/05/2021</p>
+                    <p> <b> Vehículo: </b>658</p>
+                </mat-card-content>
+                <hr>
+            </mat-card>
+        </mat-card>
+    </div>
+
+    <!-- <div fxLayoutAlign="center center" style="width: auto;">
+            <div class="table mat-elevation-z8" style="width: auto;">
+                <div>
+                    <h2 fxLayoutAlign="center center">Usuario Relacionado</h2>
+                </div>
+                <table mat-table [dataSource]="dataSource" matSort class="table-home">
+
+                    <ng-container matColumnDef="economico">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Económico</th>
+                        <td mat-cell *matCellDef="let row"> {{row.economico}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="conductor">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Conductor </th>
+                        <td mat-cell *matCellDef="let row"> {{row.conductor}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="velocidad">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Velocidad </th>
+                        <td mat-cell *matCellDef="let row"> {{row.velocidad}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="incidencia">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo de Incidencia </th>
+                        <td mat-cell *matCellDef="let row"> {{row.incidencia}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="fecha">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
+                        <td mat-cell *matCellDef="let row"> {{row.fecha}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4"> No se encontró información de "{{input.value}}"</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div> -->
+
+</div>
