@@ -1,0 +1,117 @@
+<mat-tab-group style="width: 100%; height: auto;" mat-align-tabs="center">
+    
+    <mat-tab label="Sistema de Prevención de Accidentes">
+
+        <div style="background: #3c7ead" fxLayoutAlign="space-between">
+            <mat-card style="width: 100%; height: 100%;  border: solid 1px rgb(5, 5, 5); ">
+                <mat-card-actions fxLayoutAlign="space-between ">
+                    <button mat-raised-button (click)="openDialogDangerZone() " style="background: rgb(0, 149, 236) ; ">Zonas de Riesgo</button>
+                    <button mat-raised-button (click)="openDilaogAuthorizedStops() " style="background:  rgb(0, 149, 236) ">Paraderos autorizados</button>
+                    <button mat-raised-button (click)="openDialogRouteTracking() " style="background:  rgb(0, 149, 236) ">Trazados de ruta</button>
+                    <button mat-raised-button style="border-radius: 5%; "> <mat-icon style="color:  rgb(0, 149, 236) ">search</mat-icon> </button>
+                </mat-card-actions>
+
+                <agm-map [latitude]="lat " [longitude]="lng " [zoom]="zoom " style="width: 100%; height: 40vh; ">
+
+                    <agm-marker *ngFor="let vehicle of logisticTravelDetails " [latitude]="vehicle.latitude " [longitude]="vehicle.longitude ">
+                        <agm-info-window>
+                            <div>
+                                <h3>{{vehicle.transport_line}}</h3>
+                                <h3>{{vehicle.drive_name}}</h3>
+                                <h3>{{vehicle.travel_dt_id}}</h3>
+                                <p> plate: {{ vehicle.plate }} </p>
+                                <p> speed: {{ vehicle.speed }} </p>
+                                <p> lat: {{ vehicle.latitude }} </p>
+                                <p> lng: {{ vehicle.longitude }} </p>
+                                <button mat-raised-button class=" compose-dialog-button w-100-p ">tracking details</button>
+                            </div>
+                        </agm-info-window>
+                    </agm-marker>
+                </agm-map>
+
+            </mat-card>
+
+            <mat-card style="width: auto; height: 100%; background: #e1e6eb; margin: 2%;">
+                 
+                <mat-form-field style="width: auto; margin: 1%;" appearance="legacy" fxLayoutAlign="center center">
+                        <mat-label>
+                            Buscar
+                        </mat-label>
+                        <input matInput placeholder="Ingrese Dato" (keyup)="applyFilterTopIncidents($event)" #input>
+                        <mat-icon matSuffix style="color: #1da1f2">search</mat-icon>
+                    </mat-form-field>
+            
+
+                <div class="mat-elevation-z8" style="width: auto;">
+                    <table mat-table [dataSource]="dataSourceTopIncidents" matSort class="table-home">
+
+                        <ng-container matColumnDef="transportista">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Línea Transportista</th>
+                            <td mat-cell *matCellDef="let row">{{row.transport_line}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="conductor">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Conductor </th>
+                            <td mat-cell *matCellDef="let row"> {{row.drive_name}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="incidencia">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Incidencia </th>
+                            <td mat-cell *matCellDef="let row"> Overspeed : {{row.speed}} km/h </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="dt">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> DT </th>
+                            <td mat-cell *matCellDef="let row"> {{row.travel_dt_id}} </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumnsTopIncidents"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumnsTopIncidents;"></tr>
+
+
+                        <tr class="mat-row" *matNoDataRow>
+                            <td class="mat-cell" colspan="4"> No se encontró información de "{{input.value}}"</td>
+                        </tr>
+
+                    </table>
+                    <mat-paginator fxLayoutAlign="center center" style="background: #e1e6eb; color: black;  font-weight: bold;" [pageSizeOptions]="[3, 6, 10, 50]"></mat-paginator>
+                </div>
+            </mat-card>
+        </div>
+
+        <div style="display: flex; justify-content: center;">
+            <mat-card style="height: 95%; width: 100%;">
+                <!--        <div fxLayoutAlign="end end">
+                    <button mat-raised-button style="background: #1a85d1; margin: 1%;" data-title="Conductores">
+                    Descargar</button>
+                </div> -->
+                <div>
+                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions " [plugins]="barChartPlugins " [legend]="barChartLegend " [chartType]="barChartType ">
+                    </canvas>
+                </div>
+            </mat-card>
+        </div>
+
+    </mat-tab>
+
+    <!-- <mat-tab label="Salidas Activas ">
+        <iframe style="height: 92.9vh; width: 100%; " width="1250 " height="83vh " src="https://app.powerbi.com/reportEmbed?reportId=d9c11b9c-6d26-4f12-aafd-1a59ce167a14&groupId=1516e6d9-86bd-4cd5-b962-da91db8c3e81&autoAuth=true&ctid=76d621fe-838d-496a-9f4f-60d7eb46763e&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXNvdXRoLWNlbnRyYWwtdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D "
+            frameborder="0 " allowFullScreen="true "></iframe>
+    </mat-tab>
+
+    <mat-tab label="En tiempo ">
+        <iframe style="height: 92.9vh; width: 100%; " width="1250 " height="83vh " src="https://app.powerbi.com/reportEmbed?reportId=04c8d294-e542-41ec-b0d9-efc625eb9ca5&groupId=1516e6d9-86bd-4cd5-b962-da91db8c3e81&autoAuth=true&ctid=76d621fe-838d-496a-9f4f-60d7eb46763e&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXNvdXRoLWNlbnRyYWwtdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D "
+            frameborder="0 " allowFullScreen="true "></iframe>
+    </mat-tab>
+
+    <mat-tab label="Anomalías ">
+        <iframe style="height: 92.9vh; width: 100%; " width="1250 " height="83vh " src="https://app.powerbi.com/reportEmbed?reportId=1b25c1e7-bdf3-42e2-b490-7172d2fada45&groupId=1516e6d9-86bd-4cd5-b962-da91db8c3e81&autoAuth=true&ctid=76d621fe-838d-496a-9f4f-60d7eb46763e&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXNvdXRoLWNlbnRyYWwtdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D "
+            frameborder="0 " allowFullScreen="true "></iframe>
+    </mat-tab>
+
+    <mat-tab label="Salidas Históricas ">
+        <iframe style="height: 92.9vh; width: 100%; " width="1250 " height="83vh " src="https://app.powerbi.com/reportEmbed?reportId=2e23900b-765c-4407-8231-39ea34202c9d&groupId=1516e6d9-86bd-4cd5-b962-da91db8c3e81&autoAuth=true&ctid=76d621fe-838d-496a-9f4f-60d7eb46763e&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXNvdXRoLWNlbnRyYWwtdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D "
+            frameborder="0 " allowFullScreen="true "></iframe>
+    </mat-tab> -->
+
+</mat-tab-group>

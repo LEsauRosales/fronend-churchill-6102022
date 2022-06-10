@@ -1,0 +1,67 @@
+<div style="height: 90vh; width: auto;">
+
+    <div fxLayoutAlign="end end">
+        <button mat-flat-button color="warn" mat-dialog-close>X</button>
+    </div>
+
+    <div fxLayoutAlign="center center">
+        <h1>Detalle de Seguimiento de Congeladores</h1>
+    </div>
+    <hr>
+
+    <div>
+        <div fxLayoutAlign="space-around" style="width: 70vw;">
+          
+            <mat-card style=" background: #e1e6eb; width: 50%; height: 100%; border: solid 1px rgb(107, 107, 107);" fxLayoutAlign="center center " class="mat-elevation-z8">
+                <img mat-card-image [src]="imageSelected " style="width: 30vw; height: 40vh; margin: 2%; ">
+            </mat-card>
+
+            <mat-card style="width: auto; height: auto; background: #e1e6eb; ">
+                <mat-card style="width: 100%; height: auto; ">
+                    <div>
+                        <h2 fxLayoutAlign="center center ">Datos del Congelador</h2>
+                    </div>
+                    <hr>
+                    <mat-card-content style="width: max-content; height: auto; ">
+                        <p> <b> Región:</b> Metro</p>
+                        <p> <b> Agencia: </b> Guadalajara </p>
+                        <p> <b> ID Congelador: </b> 90 </p>
+                        <p> <b> Serial: </b> 14021</p>
+                        <p> <b> Cliente Responsable: </b> Congeladores de Mexico </p>
+                        <p> <b> Supervisor Responsable: </b> Roberto García</p>
+                        <p> <b> Fecha de Inspección: </b>20/05/2021</p>
+                        <p> <b> Comentario: </b>Se debe realizar una revisión de temperatura en 15 días</p>
+                    </mat-card-content>
+                    <hr>
+                </mat-card>
+            </mat-card>
+        </div>
+
+        <div fxLayoutAlign="center center">
+            <div fxLayoutAlign="space-around" style="width: 60vw;">
+
+                <mat-card class="mat-elevation-z8" (click)="setImage1() " style="width: auto; height: auto; background: #e1e6eb; border: solid 1px rgb(107, 107, 107); margin: 1%; " fxLayoutAlign="center center ">
+                    <img mat-card-image src="assets/images/logos/congelador0.jpg " class="img-small ">
+                </mat-card>
+
+                <mat-card class="mat-elevation-z8" (click)="setImage2() " style="width: auto; height: auto; background: #e1e6eb; border: solid 1px rgb(107, 107, 107); margin: 1%; " fxLayoutAlign="center center ">
+                    <img mat-card-image src="assets/images/logos/congelador1.jpg " class="img-small ">
+                </mat-card>
+
+                <mat-card class="mat-elevation-z8" (click)="setImage3() " style="width: auto; height: auto; background: #e1e6eb; border: solid 1px rgb(107, 107, 107); margin: 1%; " fxLayoutAlign="center center ">
+                    <img mat-card-image src="assets/images/logos/congelador2.jpg " class="img-small ">
+                </mat-card>
+
+                <mat-card class="mat-elevation-z8" (click)="setImage4() " style="width: auto; height: auto; background: #e1e6eb; border: solid 1px rgb(107, 107, 107); margin: 1%; " fxLayoutAlign="center center ">
+                    <img mat-card-image src="assets/images/logos/congelador3.jpg " class="img-small ">
+                </mat-card>
+
+                <mat-card class="mat-elevation-z8" (click)="setImage5() " style="width: auto; height: auto; background: #e1e6eb; border: solid 1px rgb(107, 107, 107); margin: 1%; " fxLayoutAlign="center center ">
+                    <img mat-card-image src="assets/images/logos/congelador4.jpg " class="img-small ">
+                </mat-card>
+
+            </div>
+        </div>
+    </div>
+
+</div>

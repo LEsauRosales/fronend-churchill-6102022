@@ -1,0 +1,61 @@
+l
+body {
+    background: #f2f2f2;
+    font-family: Arial, Sans-serif;
+}
+
+
+input[type="text"] {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border: 1px solid #226fc1;
+    font-family: Arial;
+    font-size: larger;
+    width: 100%;
+    color: black;
+    background: rgb(251, 249, 249);
+    display: flex;
+    align-content: flex-end;
+    align-items: flex-end;
+}
+
+mat-form-field {
+    width: 25vw;
+    color: black;
+}
+
+section {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+textarea {
+max-height: 10vh;}
+
+mat-label {
+    font-weight: bolder;
+    color: black;
+    width: 25vw;
+    display: flex;
+    align-content: flex-end;
+    align-items: flex-end;
+    justify-content: start;
+    font-size: medium;
+}
+
+.form-control-2 {
+    border: 1px solid #226fc1;
+    font-family: Arial;
+    font-size: larger;
+    width: 25vw;
+    color: black;
+    background: #f2f4f7;
+    padding: 2%;
+}
+
+form {
+    overflow: scroll;
+    height: 50vh;
+    width: 26vw;
+}
+

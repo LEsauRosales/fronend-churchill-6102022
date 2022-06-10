@@ -1,0 +1,120 @@
+<mat-tab-group animationDuration="0ms" mat-align-tabs="center" style="width: 100%; height: auto;">
+
+    <mat-tab label="Seguimiento de Congeladores">
+        <!-- tabla -->
+        <div>
+            <mat-card style="width: 100%; height: 100%; background: #e1e6eb;">
+                <div fxLayoutAlign="space-between">
+
+                    <div style="width: 100%; height: 100%;" fxLayoutAlign="right-right">
+                        <mat-card style="width: 50%; height: auto; margin: 1%;">
+                            <div fxLayoutAlign="space-around">
+                                <mat-form-field appearance="legacy" fxLayoutAlign="center center">
+                                    <mat-label>
+                                        Buscar
+                                    </mat-label>
+                                    <input matInput placeholder="Ingrese Dato" (keyup)="applyFilter($event)" #input>
+                                    <mat-icon matSuffix style="color: #1da1f2">search</mat-icon>
+                                </mat-form-field>
+                            </div>
+
+                            <div style="margin: 1%;" fxLayoutAlign="center center">
+                                <div class="table mat-elevation-z8">
+                                    <table mat-table [dataSource]="dataSource" matSort class="table-home">
+
+                                        <ng-container matColumnDef="region">
+                                            <th mat-header-cell *matHeaderCellDef mat-sort-header (click)="openDialogFreezerDetail()"> Región </th>
+                                            <td mat-cell *matCellDef="let row"> {{row.region}} </td>
+                                        </ng-container>
+
+                                        <ng-container matColumnDef="agencia">
+                                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Agencia </th>
+                                            <td mat-cell *matCellDef="let row" (click)="openDialogFreezerDetail()"> {{row.agencia}} </td>
+                                        </ng-container>
+
+                                        <ng-container matColumnDef="idCongelador">
+                                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id Congelador </th>
+                                            <td mat-cell *matCellDef="let row" (click)="openDialogFreezerDetail()"> {{row.cameraidCongelador}} </td>
+                                        </ng-container>
+
+                                        <ng-container matColumnDef="serial">
+                                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Serial </th>
+                                            <td mat-cell *matCellDef="let row" (click)="openDialogFreezerDetail()"> {{row.serial}} </td>
+                                        </ng-container>
+
+                                        <ng-container matColumnDef="clienteResponsable">
+                                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Cliente Responsable</th>
+                                            <td mat-cell *matCellDef="let row" (click)="openDialogFreezerDetail()"> {{row.clienteResponsable}} </td>
+                                        </ng-container>
+
+                                        <ng-container matColumnDef="supervisorResponsable">
+                                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Supervisor Responsable </th>
+                                            <td mat-cell *matCellDef="let row" (click)="openDialogFreezerDetail()"> {{row.supervisorResponsable}} </td>
+                                        </ng-container>
+
+                                        <ng-container matColumnDef="fechaInspeccion">
+                                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de Inspección </th>
+                                            <td mat-cell *matCellDef="let row" (click)="openDialogCctvDetail() "> {{row.fechaInspeccion}} </td>
+                                        </ng-container>
+
+                                        <ng-container matColumnDef="comentario">
+                                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Comentario </th>
+                                            <td mat-cell *matCellDef="let row" (click)="openDialogCctvDetail() "> {{row.comentario}} </td>
+                                        </ng-container>
+
+                                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                                        <tr class="mat-row" *matNoDataRow>
+                                            <td class="mat-cell" colspan="4">No se encontró información de "{{input.value}}"</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <mat-paginator fxLayoutAlign="center center" style="background: #ffffff; color: black; font-weight: bold;" [pageSizeOptions]="[6, 10, 20, 100]"></mat-paginator>
+
+                            <mat-card style="margin: 1%; width: 100%;  height: auto;" class="table mat-elevation-z8">
+                                <!-- style=" width: 35vw; height: 30vh;" -->
+                                <canvas width="800" height="320" baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"></canvas>
+                            </mat-card>
+
+                        </mat-card>
+
+                        <mat-card style="width: 50%; height: auto; margin: 1%;">
+                            <h1 fxLayoutAlign="center center">Status de Congeladores</h1>
+
+                            <div style="width: 100%; margin: 1%;" fxLayoutAlign="center center">
+                                <div>
+                                    <hr>
+                                    <h2 fxLayoutAlign="center center">Total Congeladores</h2>
+                                    <div style="width: 100%" fxLayoutAlign="center center">
+                                        <div style="width: 25vw;">
+                                            <canvas baseChart [data]="doughnutChartData1" [labels]="doughnutChartLabels1" [chartType]="doughnutChartType" [colors]="doughnutChartColors1"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div style="width: 100%; margin: 1%;" fxLayoutAlign="center center">
+                                <div>
+                                    <h2 fxLayoutAlign="center center">Congeladores Inspeccionados al día</h2>
+                                    <div style="width: 100%" fxLayoutAlign="center center">
+                                        <div style="width: 25vw;">
+                                            <canvas baseChart [data]="doughnutChartData2" [labels]="doughnutChartLabels2" [chartType]="doughnutChartType" [colors]="doughnutChartColors2"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-card>
+                    </div>
+
+                </div>
+            </mat-card>
+        </div>
+    </mat-tab>
+
+    <mat-tab label="Transacciones de Inventario">
+    </mat-tab>
+
+</mat-tab-group>

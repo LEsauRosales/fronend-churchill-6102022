@@ -1,0 +1,146 @@
+<div style="width: auto; height: 90vh;">
+
+    <div fxLayoutAlign="end end">
+        <button mat-flat-button color="warn" mat-dialog-close>X</button>
+    </div>
+
+    <div fxLayoutAlign="center center">
+        <h1>Reporte de Incidencia</h1>
+    </div>
+    <hr>
+
+    <div style="width: 100%;" fxLayoutAlign="center space-around">
+
+        <mat-card style="width: auto; height: 100%; background: #aab8c2; margin: 2%; border: solid 1px rgb(136, 136, 136); width: auto;" fxLayoutAlign="center center" class="mat-elevation-z8">
+
+          <mat-card style=" background: #e1e8ed; width: auto;  height: auto; border: solid 1px rgb(136, 136, 136);">
+         
+            <div fxLayoutAlign="center center">
+            <h2>Informe Incidencia / Evento</h2>
+          </div>
+          <hr>
+                 <div style="width: auto;" fxLayoutAlign="center center">
+
+                  <form [formGroup]="formIncidentsReportRegister" autocomplete="off">
+                    <div style="width: 100%;">
+
+                      <section>
+                        <mat-label> Fecha de Incidencia / Evento: </mat-label>
+                        <input type="date" class="form-control-2" formControlName="incident_date" [(ngModel)]="IncidentsReportRegister.incident_date">
+                      </section>
+  
+                      <section>
+                        <mat-label> Hora de Incidencia / Evento: </mat-label>
+                        <input type="time" class="form-control-2" formControlName="incident_hour" [(ngModel)]="IncidentsReportRegister.incident_hour">
+                      </section>
+
+                      <section>
+                        <mat-label>Nombre de quien reporta:</mat-label>
+                        <input class="form-control-2" formControlName="name" [(ngModel)]="IncidentsReportRegister.name">
+                      </section>
+
+                        <section>
+                          <mat-label>Rol:</mat-label>
+                          <input class="form-control-2" formControlName="rol" [(ngModel)]="IncidentsReportRegister.rol">
+                        </section>
+
+                        <div style="margin-top: 3%;">
+
+                        <section>
+                        <mat-form-field appearance="fill">
+                          <mat-label>División de Negocio:</mat-label>
+                          <mat-select multiple formControlName="business_division" [(ngModel)]="IncidentsReportRegister.business_division">
+                            <mat-option *ngFor="let divisionNegocio of divisiondeNegocio" [value]="divisionNegocio">{{divisionNegocio}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        </section>
+
+                      </div>
+                        <section>
+                        <mat-form-field appearance="fill">
+                          <mat-label> <b> Tipo de Incidencia / Evento:</b></mat-label>
+                           <mat-select formControlName="incident_type" [(ngModel)]="IncidentsReportRegister.incident_type">
+                             <mat-option *ngFor="let tipo of tipo" [value]="tipo.viewValue">
+                               {{tipo.viewValue}}
+                             </mat-option>
+                           </mat-select>
+                         </mat-form-field>
+                        </section>
+
+                        <section>
+                         <mat-form-field appearance="fill">
+                          <mat-label>Protocolo:</mat-label>
+                          <mat-select  formControlName="protocolo" [(ngModel)]="IncidentsReportRegister.protocolo">
+                            <mat-option  *ngFor="let protocolo of protocolo " [value]="protocolo .viewValue">
+                              {{protocolo.viewValue}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>  
+                      </section>
+         
+                      <section>
+                        <mat-label> Origen de Incidencia / Evento:</mat-label>
+                        <input class="form-control-2" formControlName="incident_origin" [(ngModel)]="IncidentsReportRegister.incident_origin">
+                      </section>
+     
+                      <section>
+                        <mat-label> Ubicación de Incidencia / Evento: </mat-label>
+                        <input class="form-control-2" formControlName="incident_ubication" [(ngModel)]="IncidentsReportRegister.incident_ubication">
+                      </section>
+  
+                      <section>
+                        <mat-label> Causa de Incidencia / Evento: </mat-label>
+                        <input class="form-control-2" formControlName="incident_cause" [(ngModel)]="IncidentsReportRegister.incident_cause">
+                      </section>
+
+                      <section>
+                        <mat-label> Descripción detallada: </mat-label>
+                        <input class="form-control-2" formControlName="incident_description" [(ngModel)]="IncidentsReportRegister.incident_description">
+                      </section>
+
+                      <section>
+                        <mat-label> Número de Teléfono: </mat-label>
+                        <input class="form-control-2" formControlName="phone_number" [(ngModel)]="IncidentsReportRegister.phone_number">
+                      </section>
+
+                      <section>
+                        <mat-label> Seguimiento de incidencia: </mat-label>
+                        <input class="form-control-2" formControlName="seguimiento" [(ngModel)]="IncidentsReportRegister.seguimiento">
+                      </section>
+
+                      <section>
+                        <mat-label> Solución de la incidencia / evento: </mat-label>
+                        <input class="form-control-2" formControlName="incident_solution" [(ngModel)]="IncidentsReportRegister.incident_solution" >
+                      </section>
+
+                      <section>
+                        <mat-label> Validación de solución: </mat-label>
+                        <input class="form-control-2" formControlName="validation_solution" [(ngModel)]="IncidentsReportRegister.validation_solution" >
+                      </section>
+
+                    </div> 
+                  </form>
+
+                </div> 
+
+                <div fxLayoutAlign="center center" style="width: 100%">
+                    <button (click)="createrNewIncidentsReport()" mat-raised-button style=" background: #00acee; margin: 2%;">Agregar Reporte de Incidencia / Evento</button>
+                </div>
+
+          </mat-card>
+
+        </mat-card>
+
+        <mat-card style="width: 50%; height: auto; margin: 2%; background: #aab8c2;" class="mat-elevation-z8">
+        <div fxLayoutAlign="center center">
+            <h2>Protocolo</h2>
+        </div>
+        <hr>
+        <div style="height: 65vh; width: 100%;">
+           <img style="height: 100%; width: 100%;" src="assets/images/logos/Protocolo.PNG">
+        </div>
+        </mat-card>
+
+    </div>
+
+</div>
