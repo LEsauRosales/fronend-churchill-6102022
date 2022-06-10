@@ -1,0 +1,65 @@
+th {
+    background: #bbdeff;
+}
+
+table th {
+    cursor: pointer;
+    text-align: center;
+    top: 0;
+    position: sticky;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.table-home td {
+    word-break: break-word;
+    padding-left: 1%;
+    padding-right: 1%;
+    overflow: auto;
+}
+
+.table-home {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    height: 20vh;
+}
+
+.table:hover {
+    cursor: pointer;
+}
+
+.list-wrap {
+    width: 100%;
+    height: 30vh;
+    overflow-y: scroll;
+}
+
+.sticky {
+    text-align: center;
+    top: 0;
+    position: sticky;
+    z-index: 10;
+}
+
+.mat-canvas {
+    height: auto;
+    width: 100%;
+    margin: 2%;
+}
+
+.canvas {
+    width: 50vh;
+    height: auto;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+button {
+    background: rgb(0, 149, 236);
+    margin: 1%;
+}
+
+h1 {    margin: 2%;
+}

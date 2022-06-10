@@ -1,0 +1,276 @@
+<div style="width: 100%; height: auto;">
+
+    <mat-tab-group #tabRef (selectedTabChange)="getLastLocation(tabRef.selectedIndex)">
+
+        <mat-tab label="Histórico de Incidencias">
+
+            <div style="height: 90vh; width: 100%;">
+
+                <mat-card style="width: auto; height: auto;  border: solid 1px rgb(5, 5, 5); ">
+                    <mat-card-actions fxLayoutAlign="center center">
+                        <button mat-raised-button (click)="openDialogAddEntryGeocerca()" style="background: rgb(0, 149, 236) ; ">Trazado de Geoerca de Entrada</button>
+                        <button mat-raised-button (click)="openDialogAddExitGeocerca()" style="background: rgb(0, 149, 236) ; ">Trazado de Geoerca de Salida</button>
+                    </mat-card-actions>
+
+                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" style="width: 100%; height: 45vh;">
+                        <agm-marker *ngFor="let vehicle of logisticTravelDetails" [latitude]="vehicle.latitude" [longitude]="vehicle.longitude">
+                            <agm-info-window>
+                                <div>
+                                    <h3>{{vehicle.transport_line}}</h3>
+                                    <h3>{{vehicle.drive_name}}</h3>
+                                    <h3>{{vehicle.travel_dt_id}}</h3>
+                                    <p> plate: {{ vehicle.plate }} </p>
+                                    <p> speed: {{ vehicle.speed }} </p>
+                                    <p> lat: {{ vehicle.latitude }} </p>
+                                    <p> lng: {{ vehicle.longitude }} </p>
+                                    <button mat-raised-button class=" compose-dialog-button w-100-p">tracking details</button>
+                                </div>
+                            </agm-info-window>
+                        </agm-marker>
+                    </agm-map>
+                </mat-card>
+
+                <mat-card style="width: auto; height: auto;  border: solid 1px rgb(5, 5, 5); background: #e1e6eb;">
+
+                    <div fxLayoutAlign="center center" style="width: 100%; height: auto;">
+                       
+                            <h1> <u> Reporte RAV </u></h1>
+                     
+                            <button  mat-raised-button style="background: rgb(0, 149, 236); ">Descargar</button>
+                     
+                            <button (click)="openDialogDrivers()" mat-raised-button style="background: rgb(0, 149, 236); ">Conductores</button>
+                     
+                            <button (click)="openDialogVehicles()" mat-raised-button style="background: rgb(0, 149, 236); ">Vehículos</button>
+                      
+                    </div>
+
+                    <div style="width: 100%; height: 100%; margin-bottom: 2%;">
+                        <mat-grid-list cols="3" rowHeight="2:1">
+                            <mat-grid-tile>
+                                <div class="canvas">
+                                    <mat-card class="mat-canvas mat-elevation-z8">
+                                        <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels " [chartType]="doughnutChartType " [colors]="doughnutChartColors1 ">
+                                        </canvas>
+                                    </mat-card>
+                                </div>
+                            </mat-grid-tile>
+
+                            <mat-grid-tile>
+                                <div class="canvas ">
+                                    <mat-card class="mat-canvas mat-elevation-z8">
+                                        <canvas baseChart [datasets]="barChartData " [labels]="barChartLabels " [options]="barChartOptions " [plugins]="barChartPlugins " [legend]="barChartLegend " [chartType]="barChartType ">
+                                </canvas>
+                                    </mat-card>
+                                </div>
+                            </mat-grid-tile>
+
+                            <mat-grid-tile>
+                                <div class="canvas ">
+                                    <mat-card class="mat-canvas mat-elevation-z8">
+                                        <canvas baseChart [datasets]="barChartData1 " [labels]="barChartLabels1 " [options]="barChartOptions1 " [plugins]="barChartPlugins1 " [legend]="barChartLegend1 " [chartType]="barChartType1 ">
+                                </canvas>
+                                    </mat-card>
+                                </div>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </div>
+
+                    <div fxLayoutAlign="space-around" style="background: #e1e6eb; margin-top: 1%;">
+                        <mat-list role="list " fxLayoutAlign="right right ">
+                            <div style=" border: solid 1px rgb(150, 148, 148); " class="list-wrap">
+                                <mat-list-item class="sticky " style="background: rgb(52, 122, 253); width: 100%; color: black; ">
+                                    <b> Excelentes Conductores:</b>
+                                </mat-list-item>
+                                <mat-list-item *ngFor="let folder of folders " role="listitem " style="background: white;">
+                                    <p style="width: 10vw; ">{{folder.name}}</p>
+                                    <mat-progress-bar mode="determinate " value="{{folder.posicion}} " style="width: 5vw; height: 3vh; "></mat-progress-bar>
+                                    <p style="width: 1vw; margin: 1%; "> {{folder.posicion}} </p>
+                                </mat-list-item>
+                            </div>
+                        </mat-list>
+
+                        <mat-list role="list " fxLayoutAlign="right right ">
+                            <div style=" border: solid 1px rgb(150, 148, 148); " class="list-wrap ">
+                                <mat-list-item class="sticky " style="background: rgb(23, 170, 23); width: 100%; color: black; ">
+                                    <b> Buenos Conductores:</b>
+                                </mat-list-item>
+                                <mat-list-item *ngFor="let folder of folders " role="listitem " style="background: white;">
+                                    <p style="width: 10vw; ">{{folder.name}}</p>
+                                    <mat-progress-bar mode="determinate " value="{{folder.posicion}} " style="width: 5vw; height: 3vh; "></mat-progress-bar>
+                                    <p style="width: 1vw; margin: 1%; "> {{folder.posicion}} </p>
+                                </mat-list-item>
+                            </div>
+                        </mat-list>
+
+                        <mat-list role="list " fxLayoutAlign="right right ">
+                            <div style=" border: solid 1px rgb(150, 148, 148); " class="list-wrap ">
+                                <mat-list-item class="sticky " style="background: rgb(229, 233, 17); ">
+                                    <b> Conductores Medio Riesgo: </b>
+                                </mat-list-item>
+                                <mat-list-item *ngFor="let folder of folders " role="listitem " style="background: white;">
+                                    <p style="width: 10vw; ">{{folder.name}}</p>
+                                    <mat-progress-bar mode="determinate " value="{{folder.posicion}} " style="width: 5vw; height: 3vh; "></mat-progress-bar>
+                                    <p style="width: 1vw; margin: 1%; "> {{folder.posicion}} </p>
+                                </mat-list-item>
+                            </div>
+                        </mat-list>
+
+                        <mat-list role="list " fxLayoutAlign="right right ">
+                            <div style=" border: solid 1px rgb(150, 148, 148); " class="list-wrap ">
+                                <mat-list-item class="sticky " style="background: red ">
+                                    <h1 fxLayoutAlign="center center " style="margin: 1%; "> <b>Alto Riesgo:</b> </h1>
+                                </mat-list-item>
+                                <mat-list-item *ngFor="let folder of folders" role="listitem" style="background: white;">
+                                    <p style="width: 10vw; ">{{folder.name}}</p>
+                                    <mat-progress-bar mode="determinate " value="{{folder.posicion}} " style="width: 5vw; height: 3vh; "></mat-progress-bar>
+                                    <p style="width: 1vw; margin: 1%; "> {{folder.posicion}} </p>
+                                </mat-list-item>
+                            </div>
+                        </mat-list>
+                    </div>
+                </mat-card>
+            </div>
+            <hr>
+        </mat-tab>
+
+        <mat-tab label="Tracking Viaje Ice Cream ">
+
+            <div style="padding: 1%; background: #e1e6eb; width: 100%; height: 100%; ">
+                <mat-card style="width: 100%; height: auto; border: solid 1px rgb(5, 5, 5); ">
+                    <agm-map [latitude]="lat " [longitude]="lng " [zoom]="zoom " style="width: 100%; height: 85vh; ">
+                        <agm-marker *ngFor="let vehicle of vehiclesSmartTracker " [latitude]="vehicle.latitude " [longitude]="vehicle.longitude ">
+                            <agm-info-window>
+                                <h3 style="text-align: center; ">{{ vehicle.asset }}</h3>
+                                <p style="text-align: center; "> lat: {{ vehicle.latitude}} </p>
+                                <p style="text-align: center; "> lng: {{ vehicle.longitude }} </p>
+                                <button mat-raised-button class=" compose-dialog-button w-100-p" (click)="openTrackingDetails(vehicle.assetId, vehicle.provider) ">tracking details</button>
+                            </agm-info-window>
+                        </agm-marker>
+                    </agm-map>
+                </mat-card>
+            </div>
+
+        </mat-tab>
+
+        <mat-tab label="Tracking Viaje Ejecutivos ">
+            <div style="padding: 1%; background: #e1e6eb; width: 100%; height: 100%; ">
+                <mat-card style="width: 100%; height: auto; border: solid 1px rgb(5, 5, 5); ">
+                    <agm-map [latitude]="lat " [longitude]="lng " [zoom]="zoom " style="width: 100%; height: 90vh; ">
+                        <agm-marker *ngFor="let vehicle of vehiclesFirstCall " [latitude]="vehicle.latitude " [longitude]="vehicle.longitude ">
+                            <agm-info-window>
+                                <div>
+                                    <h3>{{ vehicle.asset }}</h3>
+                                    <p> lat: {{ vehicle.latitude }} </p>
+                                    <p> lng: {{ vehicle.longitude }} </p>
+                                    <button mat-raised-button class=" compose-dialog-button w-100-p " (click)="openTrackingDetails(vehicle.assetId, vehicle.provider) ">tracking details</button>
+
+                                </div>
+                            </agm-info-window>
+                        </agm-marker>
+                    </agm-map>
+                </mat-card>
+            </div>
+        </mat-tab>
+
+    </mat-tab-group>
+</div>
+
+<!-- <mat-tab label="Histórico ">
+
+        FILTRO Y DATEPICKER DE TABLA HISTÓRICO
+        <mat-card style="width: 100%; height: auto; background: #e1e6eb; ">
+
+            <div fxLayoutAlign="center space-around " style="width: 100%; ">
+                <mat-form-field style="width: auto; margin: 1%; " appearance="legacy " fxLayoutAlign="center center ">
+                    <mat-label>
+                        Buscar
+                    </mat-label>
+                    <input matInput placeholder="Ingrese Dato " (keyup)="applyFilterDriverHistoricScoring($event) " #input>
+                    <mat-icon matSuffix style="color: #1da1f2 ">search</mat-icon>
+                </mat-form-field>
+
+                             <mat-form-field appearance="fill ">
+                    <mat-label>Seleccione Fecha</mat-label>
+                    <mat-date-range-input [formGroup]="range " [rangePicker]="picker ">
+                        <input matStartDate formControlName="start " placeholder="Fecha de Inicio ">
+                        <input matEndDate formControlName="end " placeholder="Fecha Final ">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="picker "></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+
+                    <mat-error *ngIf="range.controls.start.hasError( 'matStartDateInvalid') ">Invalid start date</mat-error>
+                    <mat-error *ngIf="range.controls.end.hasError( 'matEndDateInvalid') ">Invalid end date</mat-error>
+                </mat-form-field>
+            </div>
+
+            TABLA HISTÓRICO
+            <div fxLayoutAlign="center center ">
+                <div class="table mat-elevation-z8 ">
+
+                    <table mat-table [dataSource]="dataSourceScoringHistoricDrive " matSort style="width: 100%; ">
+
+                        <ng-container matColumnDef="transportista ">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Línea Transportista</th>
+                            <td mat-cell *matCellDef="let row " (click)="travelDetails(row) ">{{row.transport_line}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="conductor ">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Conductor </th>
+                            <td mat-cell *matCellDef="let row " (click)="travelDetails(row) "> {{row.driver_name}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="identificativo ">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Identificativo de Viaje </th>
+                            <td mat-cell *matCellDef="let row " (click)="travelDetails(row) "> {{row.travel_dt_id}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="puntaje ">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Puntaje SIPA </th>
+                            <td mat-cell *matCellDef="let row " (click)="travelDetails(row) "> {{row.scoring}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="calificacion ">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Calificación </th>
+                            <td mat-cell *matCellDef="let row " (click)="travelDetails(row) "> Por Definir {{row.calificacion}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="duracion ">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Horas de conducción </th>
+                            <td mat-cell *matCellDef="let row " (click)="travelDetails(row) "> {{row.driving_time}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="gps ">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> GPS </th>
+                            <td mat-cell *matCellDef="let row " (click)="travelDetails(row) "> {{row.gps_model}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="fecha ">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
+                            <td mat-cell *matCellDef="let row " (click)="travelDetails(row) "> {{row.created_at}} </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumnsScoringHistoricDrive "></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumnsScoringHistoricDrive; "></tr>
+
+
+                        <tr class="mat-row " *matNoDataRow>
+                            <td class="mat-cell " colspan="4 "> No se encontró información de "{{input.value}} "</td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+
+            <mat-paginator fxLayoutAlign="center center " style="background: #e1e6eb; color: black; font-weight: bold; " [pageSizeOptions]="[3, 6, 10, 100] "></mat-paginator>
+
+        </mat-card>
+
+        <div style="display: flex; justify-content: center; ">
+
+            <mat-card style="width: 100%; height: 100%; ">
+                <canvas width="400 " height="110 " baseChart [datasets]="travelDetailSelectedData " [labels]="travelDetailSelectedLabels " [options]="lineChartOptions " [colors]="lineChartColors " [legend]="lineChartLegend " [chartType]="lineChartType
+                        " [plugins]="lineChartPlugins " (chartHover)="chartHovered($event) " (chartClick)="chartClicked($event) "></canvas>
+            </mat-card>
+        </div>
+
+    </mat-tab> -->

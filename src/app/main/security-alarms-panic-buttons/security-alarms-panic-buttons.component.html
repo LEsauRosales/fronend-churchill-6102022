@@ -1,0 +1,90 @@
+<div style="width: 100%; height:auto" >
+
+    <div  >
+        <h1  fxLayoutAlign="center center" style="margin: 2%;">Security Alarms Panic Button</h1>
+    </div>
+    <hr>
+
+<div style="width: auto;" fxLayoutAlign="center space-between">
+       
+    <mat-card style="width: auto; height: 100%; background: #e1e6eb; margin: 2%;">
+
+            <div fxLayoutAlign="center space-around">
+                <mat-form-field appearance="legacy" fxLayoutAlign="center center">
+                    <mat-label>
+                        Buscar
+                    </mat-label>
+                    <input matInput placeholder="Ingrese Dato" (keyup)="applyFilter($event)" #input>
+                    <mat-icon matSuffix style="color: #1da1f2">search</mat-icon>
+                </mat-form-field>
+                <div fxLayoutAlign="center center"  style="margin: 1%;">
+                    <button mat-raised-button style="background: #1da1f2;" (click)="openFormIncident()"> Registro de incidencia / evento</button>
+                </div>
+            </div>
+
+                <div class="mat-elevation-z8" style="width: auto;">
+                    <table mat-table [dataSource]="dataSourceInfoHubPanicButtons" matSort class="table-home">
+
+                        <ng-container matColumnDef="proveedor">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Proveedor </th>
+                            <td mat-cell *matCellDef="let row"> {{row.proveedor}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="Origen">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Origen de Incidencia </th>
+                            <td mat-cell *matCellDef="let row"> {{row.Origen}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="eco">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Económico </th>
+                            <td mat-cell *matCellDef="let row"> {{row.eco}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="event_date">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de evento</th>
+                            <td mat-cell *matCellDef="let row">{{row.event_date}}</td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="event_id">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id evento </th>
+                            <td mat-cell *matCellDef="let row"> {{row.event_id}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="latitude">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Latitud </th>
+                            <td mat-cell *matCellDef="let row" > {{row.latitude}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="longitude">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Longitud </th>
+                            <td mat-cell *matCellDef="let row"> {{row.longitude}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+                            <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="speed">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Velocidad </th>
+                            <td mat-cell *matCellDef="let row"> {{row.speed}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="status">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                            <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                        <tr class="mat-row" *matNoDataRow>
+                            <td class="mat-cell" colspan="4"> No se encontró información de "{{input.value}}"</td>
+                        </tr>
+                    </table>
+                </div>
+
+            <mat-paginator fxLayoutAlign="center center" style="background: #e1e6eb; color: black;  font-weight: bold;" [pageSizeOptions]="[7, 10, 20, 100]"></mat-paginator>
+    </mat-card>
+    </div>
+</div>

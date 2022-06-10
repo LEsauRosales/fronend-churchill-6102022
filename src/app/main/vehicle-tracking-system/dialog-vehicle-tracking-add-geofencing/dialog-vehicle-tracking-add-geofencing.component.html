@@ -1,0 +1,71 @@
+<div class="mapa">
+    <mat-card>
+        <div fxLayoutAlign="end end">
+            <button mat-dialog-close style="border-radius: 10%; padding: 1%; border-color:blanchedalmond ; background-color: #ff322e; color: blanchedalmond;">X</button>
+        </div>
+        <mat-card-title>Agregar Geocerca </mat-card-title>
+        <mat-card-subtitle>Geocercas:</mat-card-subtitle>
+        <section>
+            <div class="example-button-row">
+                <!-- <button mat-raised-button color="primary" (click)="saveGeofencing()">Add</button> -->
+
+                <form [formGroup]="formGeofencingRegister" class="example-form" autocomplete='off'>
+                    <table class="example-full-width" cellspacing="0">
+                        <tr>
+                            <td>
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Nombre</mat-label>
+                                    <input matInput class="form-control" type="text" formControlName="name" placeholder="Nombre de la geocerca" [(ngModel)]="geofencingRegister.name">
+                                </mat-form-field>
+                            </td>
+                            <td>
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Tipo</mat-label>
+                                    <input matInput class="form-control" type="text" formControlName="type" placeholder="Tipo de geocerca" [(ngModel)]="geofencingRegister.type">
+                                </mat-form-field>
+                            </td>
+                            <td>
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Alerta</mat-label>
+                                    <input matInput class="form-control" type="text" formControlName="alert" placeholder="Desc de Alerta" [(ngModel)]="geofencingRegister.alert">
+                                </mat-form-field>
+                            </td>
+                            <td>
+                                <button mat-raised-button color="accent" (click)="saveGeofencingCoords()">Guardar</button>
+                            </td>
+                            <td>
+                                <button mat-raised-button color="warn" (click)="deleteGeofencingCoords()">Borrar</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+
+
+            </div>
+        </section>
+        <mat-divider></mat-divider>
+
+        <body>
+            <div style="text-align: center;">
+                <input type="text" [(ngModel)]="searchGeoName">
+            </div>
+        </body>
+        <mat-card-content>
+            <div fxLayout="row" class="fila">
+                <div class="col">
+                    <mat-list fxLayout="column" role="list">
+                        <mat-list-item *ngFor="let geo of geofencingsDetails | filter:searchGeoName" (click)="selectedGeofencing(geo)" style="cursor: pointer" role="listitem" class="items">
+                            {{geo.name}}
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+                <div class="col">
+                    <mat-card-content fxLayout="column">
+                        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" (mapReady)="onMapReady($event)">
+                        </agm-map>
+                    </mat-card-content>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

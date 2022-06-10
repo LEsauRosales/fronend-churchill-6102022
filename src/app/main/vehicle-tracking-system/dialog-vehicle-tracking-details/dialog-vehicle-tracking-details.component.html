@@ -1,0 +1,40 @@
+<div class="mapa">
+    <mat-card>
+        <mat-card-title>Tracking Details: Unidad {{ assetId }}</mat-card-title>
+        <mat-card-subtitle>Histórico:</mat-card-subtitle>
+        <mat-card-content>
+            <div fxLayout="row" class="fila">
+                <div class="col">
+                    <mat-list fxLayout="column" role="list">
+                        <mat-list-item style="cursor: pointer" role="listitem" class="items">2020-12-18</mat-list-item>
+                        <mat-list-item style="cursor: pointer" role="listitem ">2020-12-17</mat-list-item>
+                        <mat-list-item style="cursor: pointer" role="listitem ">2020-12-16</mat-list-item>
+                        <mat-list-item style="cursor: pointer" role="listitem ">2020-12-15</mat-list-item>
+                        <mat-list-item style="cursor: pointer" role="listitem ">2020-12-14</mat-list-item>
+                        <mat-list-item style="cursor: pointer" role="listitem ">2020-12-10</mat-list-item>
+                        <mat-list-item style="cursor: pointer" role="listitem ">2020-12-08</mat-list-item>
+                        <mat-list-item style="cursor: pointer" role="listitem ">2020-12-07</mat-list-item>
+                        <mat-list-item style="cursor: pointer" role="listitem ">2020-12-06</mat-list-item>
+                        <mat-list-item style="cursor: pointer" role="listitem ">2020-12-05</mat-list-item>
+                        <mat-list-item style="cursor: pointer" role="listitem ">2020-12-04</mat-list-item>
+                        <mat-list-item style="cursor: pointer" role="listitem ">2020-12-03</mat-list-item>
+                        <mat-list-item style="cursor: pointer" role="listitem ">2020-12-02</mat-list-item>
+                        <mat-list-item style="cursor: pointer" role="listitem ">2020-12-01</mat-list-item>
+                    </mat-list>
+                </div>
+                <div class="col">
+                    <mat-card-content fxLayout="column">
+                        <agm-map [latitude]="lat " [longitude]="lng " [zoom]="zoom " [mapTypeControl]='true' [fitBounds]="true ">
+                            <!--      <agm-marker *ngFor="let coordinate of vehicleDetails; let i=index " [latitude]="coordinate.latitude " [longitude]="coordinate.longitude " [agmFitBounds]="true "></agm-marker> -->
+                            <agm-polyline [visible]="true " [strokeWeight]="3 " [strokeColor]=" '#07b57a' ">
+                                <agm-polyline-point *ngFor="let coordinate of vehicleDetails " [latitude]="coordinate.latitude " [longitude]="coordinate.longitude " [agmFitBounds]="true ">
+
+                                </agm-polyline-point>
+                            </agm-polyline>
+                        </agm-map>
+                    </mat-card-content>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

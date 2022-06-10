@@ -1,0 +1,30 @@
+mat-card-content {
+    max-height: 80vh;
+    max-width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+mat-card-subtitle {
+    color: black;
+}
+
+agm-map {
+    height: 60vh;
+    width: 60vw;
+}
+
+mat-list {
+    flex-grow: 1;
+    border: 3px solid whitesmoke;
+    overflow: auto;
+    background: rgb(255, 255, 255);
+    height: 60vh;
+    width: 10vw;
+    font-size: 10%;
+}
+
+mat-list-item:hover {
+    background: rgb(186, 186, 218);
+}
