@@ -1,0 +1,83 @@
+
+table th {
+    background: #bbdeff;
+    text-align: start;
+    justify-content: start;
+    top: 0;
+    position: sticky;
+    white-space: nowrap;
+    padding: 0 10px;
+    font-weight: bold;
+    color: rgb(12, 11, 11);
+}
+
+table td {
+    justify-content: start;
+    text-align: start;
+    white-space: wrap;
+    padding: 0 10px;
+}
+
+
+.table-home {
+    display: block;
+    height: 40vh;
+    overflow: auto;
+}
+
+.table-home:hover {
+    overflow-y: scroll
+}
+
+.table:hover {
+    cursor: pointer;
+}
+
+
+h3 {
+    margin-top: 1%;
+    color: rgb(33, 17, 122)
+}
+
+mat-icon {
+    margin-top: 1%;
+    color: rgb(33, 17, 122)
+}
+
+.list-wrap {
+    overflow-y: scroll;
+    height: 20vh;
+    width: 100%;
+    display: block;
+}
+
+.panel {
+    margin-bottom: 3%;
+    padding: 1%;
+    width: 36vw;
+}
+
+.sticky {
+    text-align: center;
+    top: 0;
+    position: sticky;
+    z-index: 10;
+}
+
+mat-label {
+    font-size: 18px;
+    color: black;
+}
+
+
+
+// mat-panel-title {
+//     width: 40vh;
+// }
+// input {
+//     border: 1px solid rgb(182, 180, 180);
+// }
+// .header {
+//     display: block;
+//     overflow-y: scroll;
+// }

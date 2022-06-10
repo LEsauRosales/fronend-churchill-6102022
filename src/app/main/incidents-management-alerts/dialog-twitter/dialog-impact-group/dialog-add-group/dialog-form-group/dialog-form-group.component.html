@@ -1,0 +1,93 @@
+
+    <div style="width: auto; height: auto;">
+        <div fxLayoutAlign="end end">
+            <button mat-flat-button color="warn" mat-dialog-close>X</button>
+        </div>
+    
+        <div fxLayoutAlign="center center">
+            <h1>Agregar Grupo de Impacto</h1>
+        </div>
+        <hr>
+    
+        <div style="width: 100%;" fxLayoutAlign="center space-between">
+    
+            <mat-card style="background: #aab8c2; margin: 2%; border: solid 1px rgb(136, 136, 136); width: auto;">
+    
+              <mat-card style=" background: #e1e8ed; width: auto;  height: auto; border: solid 1px rgb(136, 136, 136);">
+              <div fxLayoutAlign="center center">
+                <h2>Registro de Grupo de Impacto</h2>
+            </div>
+            <hr>
+                        <div style="width: 100%;">
+                            <form [formGroup]="formGroupRegister" autocomplete="off" >
+                        <section>
+                                <mat-label>Grupo:</mat-label>
+                                <input class="form-control-2" formControlName="impact_group" [(ngModel)]="groupIncidentsRegister.impact_group">                                                    
+                        </section>
+
+                        <section>
+                              <mat-label>Director:</mat-label>
+                              <input class="form-control-2" formControlName="director" [(ngModel)]="groupIncidentsRegister.director"> 
+                        </section>
+
+                        <section>
+                            <mat-label>Correo Electrónico:</mat-label>
+                            <input class="form-control-2" formControlName="email" [(ngModel)]="groupIncidentsRegister.email"> 
+                      </section>
+                            </form>
+                        </div>
+    
+                    <div fxLayoutAlign="center center" style="width: 100%">
+                        <button (click)="createrNewGroup()" mat-raised-button style=" background: #00acee; margin: 2%;">Agregar Grupo de Impacto</button>
+                    </div>
+    
+                  </mat-card>
+            </mat-card>
+    
+        </div>
+    
+    </div>
+
+<!--     
+    Form -->
+    
+    <!-- <div>
+        <mat-card fxLayout="column" style="background: #e3edf3; margin-right: 2%; padding: 5%; border: solid 1px rgb(136, 136, 136);">
+            <form>
+                <div fxLayoutAlign="right right" style="width: 100%;">
+                    <div style="width: 50%;">
+                        <div style=" margin: 4%">
+                            <mat-label>Grupo de Impacto: </mat-label>
+                            <input class="form-control" type="text">
+                        </div>
+
+                        <div style=" margin: 4%">
+                            <mat-label>Nombre y Apellido:</mat-label>
+                            <input class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div style="width: 50%;">
+                        <div style=" margin: 4%">
+                            <mat-label> Posición:</mat-label>
+                            <input class="form-control" type="text">
+                        </div>
+
+                        <div style="margin: 4%">
+                            <mat-label> Email:</mat-label>
+                            <input class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div style="margin: 4%">
+                    <mat-label fxLayoutAlign="center center">Nivel de Riesgo:</mat-label>
+                    <input class="form-control" type="text">
+                </div>
+
+                <div fxLayoutAlign="center center" style="width: 100%">
+                    <button mat-raised-button style=" background: #00acee; margin: 2%;">Agregar Grupo de Impacto</button>
+                </div>
+            </form>
+        </mat-card>
+
+    </div> -->
+

@@ -1,0 +1,28 @@
+<div style="width: auto; height: auto; ">
+    <div fxLayoutAlign="end end">
+        <button mat-dialog-close style="border-radius: 10%; padding: 1%; border-color:blanchedalmond ; background-color: #ff322e; color: blanchedalmond;">X</button>
+    </div>
+    <div fxLayoutAlign="center center">
+        <h1>Protocolos de Acción</h1>
+    </div>
+    <div>
+        <table style="width: 35vw; height: 10vh; margin-top: 2%;">
+            <tr>
+                <th>Protocolo de Acción</th>
+                <th>Descripción</th>
+            </tr>
+            <tr>
+                <td>Refugio de emergencia</td>
+                <td>Refugio en agencia o paradero autorizado hasta próximo aviso</td>
+            </tr>
+            <tr>
+                <td>LLamada SOS</td>
+                <td>Se inicia llamada a la autoridad correspondiente</td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="margin: 5%" fxLayoutAlign="center center">
+        <button mat-raised-button style="background: #00acee; padding: 1%; " (click)="openDialogFormActionProtocols() ">Agregar Protocolo de Acción</button>
+    </div>
+</div>

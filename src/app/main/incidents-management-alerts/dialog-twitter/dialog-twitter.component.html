@@ -1,0 +1,38 @@
+<div1 fxLayoutAlign="end end" style="margin-bottom: 2%;">
+
+    <button mat-flat-button color="warn" mat-dialog-close>X</button>
+</div1>
+
+<h1 fxLayoutAlign="center center">Configuración de incidentes y manejo de alertas</h1>
+
+<div fxLayoutAlign="center center">
+    <div fxLayoutAlign="center center">
+        <button mat-raised-button style="background-color: #f5f8fa" class="button" (click)="openDialogCuentas()">
+            <span>Cuentas Verificadas</span>  
+      </button>
+
+        <button mat-raised-button style="background-color: #f5f8fa" class="button" (click)="openDialogKeyWords()">
+          <span>Palabras Claves</span>  
+    </button>
+
+        <button mat-raised-button style="background-color: #f5f8fa" class="button" (click)="openDialogAlert()">
+        <span>Tipo de Alerta</span> 
+         </button>
+    </div>
+</div>
+
+<div fxLayoutAlign="center center">
+    <div fxLayoutAlign="center center">
+        <button mat-raised-button style="background-color: #f5f8fa" class="button" (click)="openDialogRiskLevel()">
+  <span>Nivel de Riesgo</span>  
+    </button>
+
+        <button mat-raised-button style="background-color: #f5f8fa" class="button" (click)="openDialogImpactGroup()">
+   <span>Calibración de Usuarios</span> 
+    </button>
+
+        <button mat-raised-button style="background-color: #f5f8fa" class="button" (click)="openDialogInstructive()">
+            <span>Instructivo</span>  
+      </button>
+    </div>
+</div>

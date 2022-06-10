@@ -1,0 +1,150 @@
+<div style="width: auto; height: 90vh">
+
+    <div fxLayoutAlign="end end" style="margin-bottom: 2%;">
+        <button mat-flat-button color="warn" mat-dialog-close>X</button>
+    </div>
+    
+    <div fxLayoutAlign="center center">
+        <h1> Usuarios </h1>
+    </div>
+    <hr>
+
+    <mat-card style="width: 100%; height: 100%; background: #e1e6eb;">
+
+        <div fxLayoutAlign="center center" >
+            <mat-form-field appearance="legacy" fxLayoutAlign="center center">
+                <mat-label>
+                    Buscar
+                </mat-label>
+                <input matInput placeholder="Ingrese Dato" (keyup)="applyFilter($event)" #input>
+                <mat-icon matSuffix style="color: #1da1f2">search</mat-icon>
+            </mat-form-field>
+        </div>
+
+            <div class="table mat-elevation-z8">
+
+                <table mat-table [dataSource]="dataSourceUsers" matSort class="table-home">
+
+                    <ng-container matColumnDef="nombre">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+                        <td mat-cell *matCellDef="let row" > {{row.name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="apellido">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </th>
+                        <td mat-cell *matCellDef="let row" > {{row.last_name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="correoelectronico">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Correo electrónico </th>
+                        <td mat-cell *matCellDef="let row" > {{row.email}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="numeroContacto">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Número de contacto </th>
+                        <td mat-cell *matCellDef="let row" > {{row.phone_number}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="numeroEmpleado">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Número de empleado </th>
+                        <td mat-cell *matCellDef="let row" > {{row.employee_number}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="posicion">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Posición </th>
+                        <td mat-cell *matCellDef="let row" > Job Role Pending </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="edit">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Editar</th>
+                        <td mat-cell *matCellDef="let row"> 
+                            <mat-icon mat-icon-button color="primary">edit</mat-icon>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="delete">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Eliminar</th>
+                        <td mat-cell *matCellDef="let row"> 
+                            <mat-icon mat-icon-button color="warn">delete</mat-icon>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No se encontró información de "{{input.value}}"</td>
+                    </tr>
+                </table>
+
+            </div>
+       
+        <mat-paginator fxLayoutAlign="center center" style="background: #e1e6eb; color: black;  font-weight: bold;" [pageSizeOptions]="[8, 10, 15, 20]"></mat-paginator>
+
+        <div fxLayoutAlign="center center" style="margin: 2%;">
+            <button mat-raised-button style="background: #00acee;" (click)="openDialogAddFormUser()">Agregar Usuario</button>
+        </div>
+
+    </mat-card>
+
+</div>
+
+
+<!-- Form -->
+
+<!-- <div style="width: 30vw; height: auto;">
+
+    <div fxLayoutAlign="end end">
+        <button mat-flat-button color="warn" mat-dialog-close>X</button>
+    </div>
+
+    <div fxLayoutAlign="center center">
+        <h1>Grupo de Impacto </h1>
+    </div>
+    <hr>
+
+    <div>
+        <mat-card fxLayout="column" style="background: #e3edf3; margin-right: 2%; padding: 5%; border: solid 1px rgb(136, 136, 136);">
+            <form>
+                <div fxLayoutAlign="right right" style="width: 100%;">
+                    <div style="width: 50%;">
+                        <div style=" margin: 4%">
+                            <mat-label>Grupo de Impacto: </mat-label>
+                            <input class="form-control" type="text">
+                        </div>
+
+                        <div style=" margin: 4%">
+                            <mat-label>Nombre y Apellido:</mat-label>
+                            <input class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div style="width: 50%;">
+                        <div style=" margin: 4%">
+                            <mat-label> Posición:</mat-label>
+                            <input class="form-control" type="text">
+                        </div>
+
+                        <div style="margin: 4%">
+                            <mat-label> Email:</mat-label>
+                            <input class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div style="margin: 4%">
+                    <mat-label fxLayoutAlign="center center">Nivel de Riesgo:</mat-label>
+                    <input class="form-control" type="text">
+                </div>
+
+                <div fxLayoutAlign="center center" style="width: 100%">
+                    <button mat-raised-button style=" background: #00acee; margin: 2%;">Agregar Grupo de Impacto</button>
+                </div>
+            </form>
+        </mat-card>
+
+    </div>
+
+
+
+
+</div> -->

@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f2f2f2;
+    font-family: Arial, Sans-serif;
+}
+
+input {
+    display: block;
+    color: rgb(167, 162, 162);
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 20vw;
+    padding: 3%;
+    margin: 2%;
+    border: 1px solid #226fc1;
+    font-family: Arial;
+}
+
+mat-form-field {
+    width: 20vw;
+    padding: 1%;
+    margin: 2%;
+}
+
+input[type="submit"]:hover {
+    background: #4fb560;
+    color: #fff;
+}
+
+mat-label {
+    font-weight: bolder;
+    color: black;
+    width: 5vw;
+}

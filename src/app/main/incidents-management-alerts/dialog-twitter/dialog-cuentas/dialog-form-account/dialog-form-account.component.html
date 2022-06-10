@@ -1,0 +1,131 @@
+  <div style="width: auto; height: auto;">
+    <div fxLayoutAlign="end end">
+        <button mat-flat-button color="warn" mat-dialog-close>X</button>
+    </div>
+
+    <div fxLayoutAlign="center center">
+        <h1>Nueva Cuenta Verificada </h1>
+    </div>
+    <hr>
+
+    <div style="width: 100%;" fxLayoutAlign="center space-between">
+
+        <mat-card style="background: #aab8c2; margin: 2%; border: solid 1px rgb(136, 136, 136); width: auto;">
+   
+            <mat-card style=" background: #e1e8ed; width: auto;  height: auto; border: solid 1px rgb(136, 136, 136);">
+
+    <div style="width: 100%;">
+
+    <form [formGroup]="formTwitterAccount" autocomplete="off" >
+     
+            <ng-container>
+                <ng-container *ngIf="updateTwitterAccount?.name; else defaultValueName">
+                    <mat-label>Nombre</mat-label>
+                    <input class="form-control" type="text" formControlName="name" [(ngModel)]="updateTwitterAccount.name">
+                </ng-container>
+                <ng-template #defaultValueName>
+                    <mat-label>Nombre</mat-label>
+                    <input class="form-control" type="text" formControlName="name" [(ngModel)]="twitterAccountRegister.name">
+                </ng-template>
+            </ng-container>
+
+            <ng-container>
+                <ng-container *ngIf="updateTwitterAccount?.account; else defaultValueAccount">
+                    <mat-label>Cuenta</mat-label>
+                    <input class="form-control" type="text" formControlName="account" [(ngModel)]="updateTwitterAccount.account">
+                </ng-container>
+                <ng-template #defaultValueAccount>
+                    <mat-label>Cuenta</mat-label>
+                    <input class="form-control" type="text" formControlName="account" [(ngModel)]="twitterAccountRegister.account">
+                </ng-template>
+            </ng-container>
+
+            <ng-container>
+                <ng-container *ngIf="updateTwitterAccount?.twitter_id; else defaultValueTwitterId">
+                    <mat-label>-</mat-label>
+                    <input class="form-control" type="text" formControlName="twitter_id" [(ngModel)]="updateTwitterAccount.twitter_id">
+                </ng-container>
+                <ng-template #defaultValueTwitterId>
+                    <mat-label>Twitter ID</mat-label>
+                    <input class="form-control" type="text" formControlName="twitter_id" [(ngModel)]="twitterAccountRegister.twitter_id">
+                </ng-template>
+            </ng-container>
+
+            <ng-container>
+                <ng-container *ngIf="updateTwitterAccount?.category; else defaultValueCategory">
+                    <mat-label>Categoría</mat-label>
+                    <input class="form-control" type="text" formControlName="category" [(ngModel)]="updateTwitterAccount.category">
+                </ng-container>
+                <ng-template #defaultValueCategory>
+                    <mat-label>Categoría</mat-label>
+                    <input class="form-control" type="text" formControlName="category" [(ngModel)]="twitterAccountRegister.category">
+                </ng-template>
+            </ng-container>
+
+    </form>
+    
+    </div>
+
+    <div style="margin-top: 10%" fxLayoutAlign="center center">
+        <button (click)="createTwitterAccount()" mat-raised-button mat-dialog-close style="background: #00acee; padding: 1%; ">Agregar</button>
+    </div>
+
+            </mat-card>
+
+        </mat-card>
+    </div> 
+
+
+<!-- <div style="width: auto; height: 90vh;">
+    <div fxLayoutAlign="end end">
+        <button mat-flat-button color="warn" mat-dialog-close>X</button>
+    </div>
+  
+    <div fxLayoutAlign="center center">
+        <h1>Nueva Cuenta Verificada</h1>
+    </div>
+    <hr>
+  
+    <div style="width: 100%;" fxLayoutAlign="center space-between">
+  
+        <mat-card style="background: #aab8c2; margin: 2%; border: solid 1px rgb(136, 136, 136); width: auto;">
+  
+          <mat-card style=" background: #e1e8ed; width: auto;  height: auto; border: solid 1px rgb(136, 136, 136);">
+         
+            <div fxLayoutAlign="center center">
+            <h2>Registro de Cuenta</h2>
+        </div>
+        <hr>
+                    <div style="width: 100%;">
+                    <section>
+                            <mat-label>Nombre:</mat-label>
+                            <input class="form-control-2">                                                    
+                    </section>
+  
+                    <section>
+                          <mat-label>Cuenta:</mat-label>
+                          <input class="form-control-2"> 
+                    </section>
+
+                        <section>
+                                <mat-label>Twitter ID:</mat-label>
+                                <input class="form-control-2"> 
+                        </section>
+    
+                        <section>
+                                <mat-label>Categoría:</mat-label>
+                                <input class="form-control-2"> 
+                        </section>
+
+                    </div>
+  
+                <div fxLayoutAlign="center center" style="width: 100%">
+                    <button (click)="createTwitterAccount()" mat-raised-button style=" background: #00acee; margin: 2%;">Agregar Cuenta</button>
+                </div>
+  
+              </mat-card>
+        </mat-card>
+  
+    </div>
+  
+  </div> -->

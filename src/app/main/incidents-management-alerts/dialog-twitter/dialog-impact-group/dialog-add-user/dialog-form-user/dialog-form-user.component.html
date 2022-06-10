@@ -1,0 +1,83 @@
+<div style="width: auto; height: 90vh;">
+  <div fxLayoutAlign="end end">
+      <button mat-flat-button color="warn" mat-dialog-close>X</button>
+  </div>
+
+  <div fxLayoutAlign="center center">
+      <h1>Agregar Usuario</h1>
+  </div>
+  <hr>
+
+  <div style="width: 100%;" fxLayoutAlign="center space-between">
+
+      <mat-card style="background: #aab8c2; margin: 2%; border: solid 1px rgb(136, 136, 136); width: auto;">
+
+        <mat-card style=" background: #e1e8ed; width: auto;  height: auto; border: solid 1px rgb(136, 136, 136);">
+        <div fxLayoutAlign="center center">
+          <h2>Registro de Usuario</h2>
+      </div>
+      <hr>
+                <div style="width: 100%;">
+
+                <form [formGroup]="formUserRegister" autocomplete="off" >
+                  <section>
+                          <mat-label>Nombre:</mat-label>
+                          <input class="form-control-2" formControlName="name" [(ngModel)]="userIncidentsRegister.name">                                                    
+                  </section>
+
+                  <section>
+                        <mat-label>Apellido:</mat-label>
+                        <input class="form-control-2" formControlName="last_name" [(ngModel)]="userIncidentsRegister.last_name"> 
+                  </section>
+
+                  <section>
+                    <mat-label>Correo electrónico:</mat-label>
+                    <input class="form-control-2" formControlName="email" [(ngModel)]="userIncidentsRegister.email"> 
+              </section>
+
+                      <section>
+                              <mat-label>Número de contacto:</mat-label>
+                              <input class="form-control-2"  formControlName="phone_number" [(ngModel)]="userIncidentsRegister.phone_number"> 
+                      </section>
+  
+                      <section>
+                              <mat-label>Número de empleado:</mat-label>
+                              <input class="form-control-2"  formControlName="employee_number" [(ngModel)]="userIncidentsRegister.employee_number"> 
+                      </section>
+<!-- 
+                      <section>
+                              <mat-label>Posición:</mat-label>
+                              <input class="form-control-2"  formControlName="position" [(ngModel)]="userIncidentsRegister.position"> 
+                      </section> -->
+                </form>
+
+                  </div> 
+
+              <div fxLayoutAlign="center center" style="width: 100%">
+                  <button (click)="createrNewUser()" mat-raised-button style=" background: #00acee; margin: 2%;">Agregar Usuario</button>
+              </div>
+
+            </mat-card>
+      </mat-card>
+
+  </div>
+
+</div>
+
+
+<!-- 
+                      <section>
+                        <form>
+                            <mat-form-field class="example-full-width" appearance="fill">
+                              <mat-label>Correo electrónico:</mat-label>
+                              <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+
+                              <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                Por favor ingrese una dirección de correo válida
+                              </mat-error>
+                              <mat-error *ngIf="emailFormControl.hasError('required')">
+                                <strong>Se requiere</strong>&nbsp;correo electrónico 
+                              </mat-error>
+                            </mat-form-field>
+                        </form>
+                    </section> -->

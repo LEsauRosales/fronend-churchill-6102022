@@ -1,0 +1,73 @@
+<div style="width: 30vw; height: auto;">
+    <div fxLayoutAlign="end end">
+        <button mat-flat-button color="warn" mat-dialog-close>X</button>
+    </div>
+
+    <div>
+        
+        <mat-card style="background: #aab8c2; margin: 2%; border: solid 1px rgb(136, 136, 136); width: auto;">
+
+        <mat-card style=" background: #e1e8ed; width: 100%;  height: auto; border: solid 1px rgb(136, 136, 136);">
+            
+            <div fxLayoutAlign="center center">
+                <h1>Reporte de incidencia </h1>
+            </div>
+            <hr>
+
+            <div style="width: 100%;">
+            
+            <form [formGroup]="formEmergencyEmployeeNumberRegister" autocomplete="off" >
+                <div>
+                    <mat-label>Tipo de incidencia</mat-label>
+                    <input class="form-control" type="text" formControlName="incident_type" [(ngModel)]="EmergencyEmployeeNumberRegister.incident_type">
+                </div>
+
+                <div>
+                    <mat-label>Origen de incidencia</mat-label>
+                    <input class="form-control" type="text" formControlName="incident_origin" [(ngModel)]="EmergencyEmployeeNumberRegister.incident_origin">
+                </div>
+
+                <div>
+                    <mat-label>Personal Asociado</mat-label>
+                    <input class="form-control" type="text" formControlName="personal" [(ngModel)]="EmergencyEmployeeNumberRegister.personal">
+                </div>
+
+                <div>
+                    <mat-label>Ubicación</mat-label>
+                    <input class="form-control" type="text" formControlName="incident_ubication" [(ngModel)]="EmergencyEmployeeNumberRegister.incident_ubication">
+                </div>
+
+                <div>
+                    <mat-label>Causa de la Incidencia</mat-label>
+                    <input class="form-control" type="text" formControlName="incident_cause" [(ngModel)]="EmergencyEmployeeNumberRegister.incident_cause">
+                </div>
+
+                <div>
+                    <mat-label>Protocolo a seguir</mat-label>
+                    <input class="form-control" type="text" formControlName="protocolo" [(ngModel)]="EmergencyEmployeeNumberRegister.protocolo">
+                </div>
+
+                <div>
+                    <mat-label>Solución de la Incidencia</mat-label>
+                    <input class="form-control" type="text" formControlName="incident_solution" [(ngModel)]="EmergencyEmployeeNumberRegister.incident_solution">
+                </div>
+
+                <div fxLayoutAlign="center center" style="margin-top: 5%;">
+                    <button (click)="createrNewIncidentsReportRegister()" mat-raised-button style=" background: #00acee; ">Agregar Reporte de Incidencia</button>
+                </div>
+
+            </form>
+
+            </div>
+
+        </mat-card>
+
+        </mat-card> 
+
+
+    </div>
+
+
+
+
+</div>

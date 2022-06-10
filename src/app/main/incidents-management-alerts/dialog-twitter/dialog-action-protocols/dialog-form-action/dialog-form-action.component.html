@@ -1,0 +1,33 @@
+<div style="width: auto; height: auto;">
+    <div fxLayoutAlign="end end">
+        <button mat-dialog-close style="border-radius: 10%; padding: 1%; border-color:blanchedalmond ; background-color: #ff322e; color: blanchedalmond;">X</button>
+    </div>
+
+    <div fxLayoutAlign="center center">
+        <h1>Protocolo de Acción </h1>
+    </div>
+
+    <form [formGroup]="formActionProtocol" autocomplete="off" style="margin-top: 5%;">
+
+        <div fxLayoutAlign="center center">
+            <mat-label>Protocolo de Acción</mat-label>
+            <input class="form-control" type="text" placeholder="Refugio"  
+            formControlName="protocolName"
+            [(ngModel)]="actionProtocolRegister.name">
+        </div>
+
+        <div fxLayoutAlign="center center">
+            <mat-label>Descripción</mat-label>
+            <input class="form-control" type="text" placeholder="Descripción Protocolo de Acción"
+            formControlName="protocolDesc"
+            [(ngModel)]="actionProtocolRegister.desc">
+        </div>
+
+
+    </form>
+
+    <div style="margin: 5%" fxLayoutAlign="center center">
+
+        <button (click)="createActionProtocol()" mat-raised-button style="background: #00acee; padding: 1%; ">Agregar</button>
+    </div>
+</div>

@@ -1,0 +1,186 @@
+<!-- <div style="width: auto; height: 90vh;">
+    <div fxLayoutAlign="end end">
+        <button mat-flat-button color="warn" mat-dialog-close>X</button>
+    </div>
+  
+    <div fxLayoutAlign="center center">
+        <h1>Nueva Palabra Clave</h1>
+    </div>
+    <hr>
+  
+    <div style="width: 100%;" fxLayoutAlign="center space-between">
+  
+        <mat-card style="background: #aab8c2; margin: 2%; border: solid 1px rgb(136, 136, 136); width: auto;">
+  
+          <mat-card style=" background: #e1e8ed; width: auto;  height: auto; border: solid 1px rgb(136, 136, 136);">
+          <div fxLayoutAlign="center center">
+            <h2>Registro de Palabra Clave</h2>
+        </div>
+        <hr>
+                    <div style="width: 100%;">
+                    <section>
+                            <mat-label>Palabra Clave:</mat-label>
+                            <input class="form-control-2">                                                    
+                    </section>
+  
+                    <section>
+                          <mat-label>Tipo de Alerta:</mat-label>
+                          <input class="form-control-2"> 
+                    </section>
+
+                        <section>
+                                <mat-label>Nivel de Riesgo:</mat-label>
+                                <input class="form-control-2"> 
+                        </section>
+    
+                        <section>
+                                <mat-label>Protocolo de Acción:</mat-label>
+                                <input class="form-control-2"> 
+                        </section>
+
+                    </div>
+  
+                <div fxLayoutAlign="center center" style="width: 100%">
+                    <button (click)="createKeyWord()"  mat-raised-button style=" background: #00acee; margin: 2%;">Agregar Palabra Clave</button>
+                </div>
+  
+              </mat-card>
+        </mat-card>
+  
+    </div>
+  
+  </div> -->
+
+  <div style="width: auto; height: auto;">
+    <div fxLayoutAlign="end end">
+        <button mat-flat-button color="warn" mat-dialog-close>X</button>
+    </div>
+  
+    <div fxLayoutAlign="center center">
+        <h1>Nueva Palabra Clave </h1>
+    </div>
+    <hr>
+
+     <div style="width: 100%;" fxLayoutAlign="center space-between">
+
+        <mat-card style="background: #aab8c2; margin: 2%; border: solid 1px rgb(136, 136, 136); width: auto;">
+   
+            <mat-card style=" background: #e1e8ed; width: auto;  height: auto; border: solid 1px rgb(136, 136, 136);">
+
+                <div fxLayoutAlign="center center">
+                    <h2>Registro de Palabra Clave</h2>
+                </div>
+                <hr>
+
+        <div style="width: 100%;">
+
+        <form [formGroup]="formKeyWord" autocomplete="off" >
+        
+            <ng-container>
+                <ng-container *ngIf="updateKeyWord?.key_word; else newKeyWord">
+                    <section>
+                    <mat-label>Palabra Clave</mat-label>
+                    <input class="form-control" type="text" formControlName="key_word" [(ngModel)]="updateKeyWord.key_word">
+                </section>
+                </ng-container>
+            
+                <ng-template #newKeyWord>
+                    <section>
+                    <mat-label>Palabra Clave</mat-label>
+                    <input class="form-control" type="text" formControlName="key_word" [(ngModel)]="keyWordRegister.key_word">
+                </section>
+                </ng-template>
+            </ng-container>
+           
+            <ng-container>
+                <ng-container *ngIf="updateKeyWord?.alerts; else newAlert">
+                  
+                    <mat-form-field appearance="fill">
+                        
+                        <mat-select (selectionChange)="selectAlert($event.value)">
+                            <mat-option *ngFor="let alert of alertsTypes " [value]="alert">
+                                {{alert.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </ng-container>
+
+                <ng-template #newAlert>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Tipo de Alerta</mat-label>
+                        <mat-select (selectionChange)="selectAlert($event.value)">
+                            <mat-option *ngFor="let alert of alertsTypes " [value]="alert">
+                                {{alert.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </ng-template>
+            </ng-container>
+
+            <section>      
+                <mat-form-field appearance="fill">
+                  <mat-label>Nivel de Riesgo</mat-label>
+                   <mat-select>
+                     <mat-option *ngFor="let nivel of nivel" [value]="nivel.value">
+                       {{nivel.viewValue}}
+                     </mat-option>
+                   </mat-select>
+                 </mat-form-field>
+            </section>
+
+            <section>
+                       
+                <mat-form-field appearance="fill">
+                    <mat-label>Protocolo</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let protocolo of protocolo " [value]="protocolo .value">
+                        {{protocolo .viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>     
+              </section>
+
+            <!-- <mat-label>Nivel de Riesgo</mat-label>
+            <ng-container>
+                <ng-container *ngIf="updateKeyWord?.risk_level; else newRiskLevel">
+                    <mat-form-field appearance="fill">
+                        <mat-select>
+                            <mat-option >
+                                {{selectedAlert?.risk_level}}
+                            </mat-option>
+                    </mat-form-field>
+
+                    </mat-form-field>
+                    <h4 class="card-text">{{selectedAlert?.risk_level}}</h4>
+                </ng-container>
+                <ng-template #newRiskLevel>
+                    <h4 class="card-text">{{selectedAlert?.risk_level}}</h4>
+                </ng-template>
+            </ng-container> -->
+        </form>
+
+        </div>
+
+        <div style="margin: 5%" fxLayoutAlign="center center">
+            <button (click)="createKeyWord()" mat-raised-button style="background: #00acee; padding: 1%; ">Agregar</button>
+        </div>
+
+            </mat-card>
+
+        </mat-card>
+
+        <!-- <div fxLayoutAlign="center center">
+            <mat-label>Protocolo de Acción</mat-label>
+            <ng-container>
+                <ng-container *ngIf="updateKeyWord?.action_protocol; else newActionProtocol">
+                    <h4 class="card-text">{{selectedAlert?.action_protocol}}</h4>
+                </ng-container>
+                <ng-template #newActionProtocol>
+                    <h4 class="card-text">{{selectedAlert?.action_protocol}}</h4>
+                </ng-template>
+            </ng-container>
+        </div> -->
+
+  
+</div> 

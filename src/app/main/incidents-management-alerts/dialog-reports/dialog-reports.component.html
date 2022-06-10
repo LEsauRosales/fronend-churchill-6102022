@@ -1,0 +1,48 @@
+<div class="container-fluid" style="height: 600px; width: 900px;">
+    <div fxLayoutAlign="end">
+        <button mat-raised-button mat-dialog-close style=" background-color: hsl(19, 100%, 49%); color: rgb(255, 255, 255);">X</button>
+    </div>
+
+    <div class="row" fxLayoutAlign="center center">
+        <div class="col">
+            <img mat-card-image [src]="imageSelected" style=" width: 500px; height: 500px; margin: 5px; ">
+        </div>
+        <div class="col ">
+            <mat-card-header>
+                <mat-card>
+                    <mat-card-title>Detalle de evento</mat-card-title>
+                    <mat-card-subtitle></mat-card-subtitle>
+                    <mat-card-content class="desc mb-5 ">
+                        <div>
+                            <h3>Empleado: Julio Ramirez</h3>
+                            <h3>Localidad: Cuautitlan Izcali Campo 1 </h3>
+                            <h2>Entrega a ruta 82</h2>
+                        </div>
+
+                    </mat-card-content>
+                </mat-card>
+            </mat-card-header>
+        </div>
+    </div>
+
+    <div class="row " fxLayoutAlign="right right ">
+
+        <div class="col ">
+            <mat-card (click)="setImage1() ">
+                <img mat-card-image src="assets/images/Reports/accidente-1.jpeg " style="width: 250px; height: 250px; margin: 15px; ">
+            </mat-card>
+        </div>
+        <div class="col ">
+            <mat-card (click)="setImage2() ">
+                <img mat-card-image src="assets/images/Reports/accidente-2.jpeg " style="width: 250px; height: 250px; margin: 15px; ">
+            </mat-card>
+        </div>
+        <div class="col ">
+            <mat-card (click)="setImage3() ">
+                <img mat-card-image src="assets/images/Reports/accidente.jpeg " style="width: 250px; height: 250px; margin: 15px; ">
+            </mat-card>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,226 @@
+<div style="width: auto; height: 90vh;">
+
+    <div fxLayoutAlign="end end" style="margin-bottom: 2%;">
+        <button mat-flat-button color="warn" mat-dialog-close>X</button>
+    </div>
+    
+    <div fxLayoutAlign="center center">
+        <h1> Relación Grupos de Impacto a Usuario</h1>
+    </div>
+    <hr>
+
+    <div style="width: 100%;" fxLayoutAlign="center space-between">
+
+     <mat-card style="width: 100%; background: #e1e6eb; margin: 1%;">
+
+        <div fxLayoutAlign="center center">
+            <h1>Grupos de Impacto</h1>
+        </div>
+        <hr>
+
+        <div fxLayoutAlign="center center">
+            <mat-form-field appearance="legacy" fxLayoutAlign="center center">
+                <mat-label>
+                    Buscar
+                </mat-label>
+                <input matInput placeholder="Ingrese Dato" (keyup)="applyFilterGroups($event)" #input>
+                <mat-icon matSuffix style="color: #1da1f2">search</mat-icon>
+            </mat-form-field>
+        </div>
+
+        
+       <div fxLayoutAlign="center center">
+
+            <div class="table mat-elevation-z8" style="width: auto;">
+
+                <table mat-table [dataSource]="dataSourceGroups" matSort class="table-home">
+
+                    <ng-container matColumnDef="grupo">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Grupo </th>
+                        <td mat-cell *matCellDef="let row" > {{row.impact_group}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="director">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Director </th>
+                        <td mat-cell *matCellDef="let row" > {{row.director}} Pending </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="checkbox">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Vincular </th>
+                        <td mat-cell *matCellDef="let row" >  <mat-checkbox
+                            class="example-margin"
+                            [(ngModel)]="checked"
+                            [(indeterminate)]="indeterminate"
+                            [labelPosition]="labelPosition"
+                            [disabled]="disabled">
+                        </mat-checkbox>
+                           </td>
+                    </ng-container>
+                   
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsGroups"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsGroups;"></tr>
+
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No se encontró información de "{{input.value}}"</td>
+                    </tr>
+                </table>
+
+            </div>
+        
+        </div>
+
+        <mat-paginator fxLayoutAlign="center center" style="background: #e1e6eb; color: black;  font-weight: bold;" [pageSizeOptions]="[2, 10, 15, 20]"></mat-paginator>
+
+    </mat-card> 
+
+      <mat-card style="width: 50vw; background: #e1e6eb; margin: 1%;">
+
+        <div fxLayoutAlign="center center">
+            <h1>Usuarios</h1>
+        </div>
+        <hr>
+
+        <div fxLayoutAlign="center center">
+
+            <mat-form-field appearance="legacy" fxLayoutAlign="center center">
+                <mat-label>
+                    Buscar
+                </mat-label>
+                <input matInput placeholder="Ingrese Dato" (keyup)="applyFilterUser($event)" #input>
+                <mat-icon matSuffix style="color: #1da1f2">search</mat-icon>
+            </mat-form-field>
+        </div>
+
+        <div fxLayoutAlign="center center">
+
+            <div class="table mat-elevation-z8" >
+
+                <table mat-table [dataSource]="dataSourceUsers" matSort class="table-home">
+
+                    <ng-container matColumnDef="nombre">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+                        <td mat-cell *matCellDef="let row" > {{row.name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="apellido">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </th>
+                        <td mat-cell *matCellDef="let row" > {{row.last_name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="correoelectronico">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Correo electrónico </th>
+                        <td mat-cell *matCellDef="let row" > {{row.email}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="numeroContacto">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Número de contacto </th>
+                        <td mat-cell *matCellDef="let row" > {{row.phone_number}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="numeroEmpleado">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Número de empleado </th>
+                        <td mat-cell *matCellDef="let row" > {{row.employee_number}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="posicion">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Posición </th>
+                        <td mat-cell *matCellDef="let row" > Job Role Pending</td>
+                    </ng-container>
+
+                     <ng-container matColumnDef="checkbox">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Vincular </th>
+                        <td mat-cell *matCellDef="let row" >  <mat-checkbox
+                            class="example-margin"
+                            [(ngModel)]="checked"
+                            [(indeterminate)]="indeterminate"
+                            [labelPosition]="labelPosition"
+                            [disabled]="disabled">
+                        </mat-checkbox>
+                           </td>
+                    </ng-container>
+
+                   
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsUsers"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsUsers;"></tr>
+
+
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No se encontró información de "{{input.value}}"</td>
+                    </tr>
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <mat-paginator fxLayoutAlign="center center" style="background: #e1e6eb; color: black;  font-weight: bold;" [pageSizeOptions]="[2, 10, 15, 20]"></mat-paginator>
+
+    </mat-card>
+
+    </div>
+
+    <div fxLayoutAlign="end end">
+        <button mat-raised-button style=" background: #00acee; margin: 2%;" >Vincular</button>
+    </div>
+
+</div>
+
+
+<!-- Form -->
+
+<!-- <div style="width: 30vw; height: auto;">
+
+    <div fxLayoutAlign="end end">
+        <button mat-flat-button color="warn" mat-dialog-close>X</button>
+    </div>
+
+    <div fxLayoutAlign="center center">
+        <h1>Grupo de Impacto </h1>
+    </div>
+    <hr>
+
+    <div>
+        <mat-card fxLayout="column" style="background: #e3edf3; margin-right: 2%; padding: 5%; border: solid 1px rgb(136, 136, 136);">
+            <form>
+                <div fxLayoutAlign="right right" style="width: 100%;">
+                    <div style="width: 50%;">
+                        <div style=" margin: 4%">
+                            <mat-label>Grupo de Impacto: </mat-label>
+                            <input class="form-control" type="text">
+                        </div>
+
+                        <div style=" margin: 4%">
+                            <mat-label>Nombre y Apellido:</mat-label>
+                            <input class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div style="width: 50%;">
+                        <div style=" margin: 4%">
+                            <mat-label> Posición:</mat-label>
+                            <input class="form-control" type="text">
+                        </div>
+
+                        <div style="margin: 4%">
+                            <mat-label> Email:</mat-label>
+                            <input class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div style="margin: 4%">
+                    <mat-label fxLayoutAlign="center center">Nivel de Riesgo:</mat-label>
+                    <input class="form-control" type="text">
+                </div>
+
+                <div fxLayoutAlign="center center" style="width: 100%">
+                    <button mat-raised-button style=" background: #00acee; margin: 2%;">Agregar Grupo de Impacto</button>
+                </div>
+            </form>
+        </mat-card>
+
+    </div>
+
+
+
+
+</div> -->

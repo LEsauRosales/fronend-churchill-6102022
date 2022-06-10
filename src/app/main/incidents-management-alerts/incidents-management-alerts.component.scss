@@ -1,0 +1,47 @@
+mat-card {
+    width: 20vw;
+    height: 20vh;
+    margin: 2%;
+    overflow: hidden;
+    text-align: center;
+}
+
+mat-card:hover {
+    overflow-y: scroll;
+}
+
+table th {
+    background: #bbdeff;
+    text-align: start;
+    justify-content: start;
+    top: 0;
+    position: sticky;
+    white-space: nowrap;
+    padding: 0 10px;
+    font-weight: bold;
+    color: rgb(12, 11, 11);
+}
+
+table td {
+    justify-content: start;
+    text-align: start;
+    white-space: wrap;
+    padding: 0 10px;
+    height: 1vh;    
+}
+
+.table-home {
+    display: block;
+    height: 35vh;
+    overflow: auto;
+}
+
+.table-home:hover {
+    overflow-y: scroll
+}
+
+.table:hover {
+    cursor: pointer;
+}
+
+

@@ -1,0 +1,39 @@
+body {
+    background: #f2f2f2;
+    font-family: Arial, Sans-serif;
+}
+
+input {
+    display: block;
+    color: rgb(167, 162, 162);
+}
+
+input[type="text"],
+input[type="email"] {
+    padding: 2%;
+    border: 1px solid #226fc1;
+    font-family: Arial;
+    margin: 2%;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background: #4fb560;
+    color: #fff;
+}
+
+mat-label {
+    font-weight: bolder;
+    color: black;
+    width: 100%;
+}
+
+.form-control {
+    border: 1px solid #226fc1;
+    font-family: Arial;
+    font-size: larger;
+    width: 22vw;
+    color: black;
+    background: #f2f4f7;
+    padding: 2%;
+}

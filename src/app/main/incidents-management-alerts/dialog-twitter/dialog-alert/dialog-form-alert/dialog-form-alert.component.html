@@ -1,0 +1,51 @@
+<div style="width: auto; height: auto;">
+    <div fxLayoutAlign="end end">
+        <button mat-flat-button color="warn" mat-dialog-close>X</button>
+    </div>
+
+    <div fxLayoutAlign="center center">
+        <h1>Nuevo Tipo de Alerta </h1>
+    </div>
+    <hr>
+
+    <mat-card style="background: #aab8c2; margin: 2%; border: solid 1px rgb(136, 136, 136); width: auto;">
+
+    <mat-card style=" background: #e1e8ed; width: auto;  height: auto; border: solid 1px rgb(136, 136, 136);">
+
+    <div style="width: 100%;">
+
+    <form [formGroup]="formAlertType" autocomplete="off" >
+        <div fxLayoutAlign="center center">
+            <mat-label>Tipo de Alerta</mat-label>
+            <input class="form-control" type="text" formControlName="alertTypeName" [(ngModel)]="alertTypeRegister.name">
+        </div>
+        <div fxLayoutAlign="center center">
+            <mat-label>Nivel de Riesgo</mat-label>
+
+            <mat-form-field>
+                <mat-label fxlayoutAlign="end end "><b>Nivel</b> </mat-label>
+                <mat-select (selectionChange)="selectedRisk($event.value)">
+                    <mat-option *ngFor="let risk of risks" [value]="risk.name">
+                        {{risk.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div fxLayoutAlign="center center">
+            <mat-label>Protocolo de acción</mat-label>
+            <input class="form-control" type="text" formControlName="actionProtocol" [(ngModel)]="alertTypeRegister.action_protocol">
+        </div>
+    </form>
+
+    </div>
+
+    <div fxLayoutAlign="center center">
+        <button (click)="createAlertType()" mat-raised-button style="background: #00acee; ">Agregar Alerta</button>
+    </div>
+
+    </mat-card>
+
+    </mat-card>
+
+
+</div>

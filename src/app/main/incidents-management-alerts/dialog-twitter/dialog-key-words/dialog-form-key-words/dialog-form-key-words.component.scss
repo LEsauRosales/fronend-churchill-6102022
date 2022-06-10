@@ -1,0 +1,69 @@
+body {
+    background: #f2f2f2;
+    font-family: Arial, Sans-serif;
+}
+
+
+input[type="text"] {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border: 1px solid #226fc1;
+    font-family: Arial;
+    font-size: larger;
+    width: 100%;
+    color: black;
+    background: rgb(251, 249, 249);
+    display: flex;
+    align-content: flex-end;
+    align-items: flex-end;
+}
+
+// mat-label {
+//     color: black;
+//     width: 28vw;
+//     display: flex;
+//     align-content: center;
+//     align-items: center;
+//     justify-content: start;
+//     font-size: medium;
+// }
+
+mat-form-field {
+    width: 100%;
+    color: black;
+}
+
+textarea {
+max-height: 10vh;}
+
+// div {margin-top: 2%; margin-bottom: 2%;
+// display: flex;
+// align-content:space-around}
+
+section {  
+    margin: 1%;
+    width: 25vw;
+}
+
+mat-label {
+    font-weight: bolder;
+    color: black;
+    width: 20vw;
+    display: flex;
+    align-content: flex-end;
+    align-items: flex-end;
+    justify-content: start;
+    font-size: medium;
+}
+
+.form-control {
+    border: 1px solid #226fc1;
+    font-family: Arial;
+    font-size: larger;
+    width: 25vw;
+    color: black;
+    background: #f2f4f7;
+    padding: 2%;
+    margin-bottom: 2%;
+}
+

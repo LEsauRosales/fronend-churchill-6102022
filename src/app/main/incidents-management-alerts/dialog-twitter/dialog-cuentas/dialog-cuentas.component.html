@@ -1,0 +1,111 @@
+<div style="width: auto; height:auto">
+
+<div fxLayoutAlign="end end" style="margin-bottom: 2%;">
+    <button mat-flat-button color="warn" mat-dialog-close>X</button>
+</div>
+
+<div fxLayoutAlign="center center">
+    <h1>Cuentas Verificadas</h1>
+</div>
+<hr>
+    <mat-card style="width: auto; height: auto;  background: #e1e6eb;">
+
+        <div fxLayoutAlign="center center">
+            <mat-form-field appearance="legacy" fxLayoutAlign="center center">
+                <mat-label>
+                    Buscar
+                </mat-label>
+                <input matInput placeholder="Ingrese Dato" (keyup)="applyFilter($event)" #input>
+                <mat-icon matSuffix style="color: #1da1f2">search</mat-icon>
+            </mat-form-field>
+        </div>
+
+            <div class="table mat-elevation-z8">
+
+                <table mat-table [dataSource]="dataSourceTwitterAccounts" matSort class="table-home">
+
+                    <ng-container matColumnDef="nombre">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+                        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="cuenta">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Cuenta </th>
+                        <td mat-cell *matCellDef="let row"> {{row.account}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="twitter_id">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Twitter_ ID </th>
+                        <td mat-cell *matCellDef="let row"> {{row.twitter_id}} </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="categoria">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Categoria</th>
+                        <td mat-cell *matCellDef="let row"> {{row.category}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="update_at">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Eliminar</th>
+                        <td mat-cell *matCellDef="let row">
+                            <mat-icon mat-icon-button color="warn" (click)="deleteTwitterAccount(row.account)">delete</mat-icon>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                    <!-- Row shown when there is no matching data. -->
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                    </tr>
+                </table>
+
+            </div>
+
+        <mat-paginator fxLayoutAlign="center center" style="background: #e1e6eb; color: black;  font-weight: bold;" [pageSizeOptions]="[10, 15, 20, 100]"></mat-paginator>
+
+    </mat-card>
+
+<div fxLayoutAlign="center center" style="margin-top: 3%;">
+    <button mat-raised-button style="background: #00acee;" (click)="openDialogFormAccount()">Agregar Cuenta</button>
+</div>
+
+</div>
+
+<!-- TABLA ANTERIOR -->
+
+<!-- <div style="width: 100%; height: 100%; ">
+    <div fxLayoutAlign="end end">
+        <button mat-dialog-close style="border-radius: 10%; border-color:blanchedalmond ; background-color: #ff322e; color: blanchedalmond;">X</button>
+    </div>
+
+    <div fxLayoutAlign="center center">
+        <h1>Cuentas Verificadas</h1>
+    </div>
+
+    <div>
+        <table style="width: 100%; height: 100%;">
+            <tr>
+                <th>Nombre</th>
+                <th>Cuenta</th>
+                <th>Tweeter ID</th>
+                <th>Categoría</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+            <tr *ngFor="let twitterAccount of twitterAccounts">
+                <td>{{twitterAccount.name}}</td>
+                <td>{{twitterAccount.account}}</td>
+                <td>{{twitterAccount.twitter_id}}</td>
+                <td>{{twitterAccount.category}}</td>
+                <td><button (click)="openDialogUpdateAccount(twitterAccount)" mat-raised-button><mat-icon style="color: rgb(48, 98, 141); ">edit</mat-icon></button> </td>
+                <td><button (click)="deleteTwitterAccount(twitterAccount)" mat-raised-button><mat-icon style="color: rgb(253, 23, 23); ">delete</mat-icon></button></td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div fxLayoutAlign="end end; " style="margin-top: 3%; ">
+        <button mat-raised-button style="background: #00acee; " (click)="openDialogFormAccount() ">Agregar Cuenta</button>
+    </div>
+</div> -->
