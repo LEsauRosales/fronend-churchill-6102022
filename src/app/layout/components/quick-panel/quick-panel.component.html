@@ -1,0 +1,165 @@
+<div class="container">
+    <h5 style="margin-top:20%">GLOBAL ALERT</h5>
+    <div>
+        <table mat-table [dataSource]="dataSource" matSort style="width: 100%;">
+            <ng-container matColumnDef="Tipo">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align:center"> Tipo </th>
+                <td mat-cell *matCellDef="let row" style="text-align:center; margin:10%">
+
+                    <mat-icon>notifications_active</mat-icon>
+                    <!-- <mat-icon>perm_phone_msg</mat-icon> -->
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Nivel">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align:center"> Nivel </th>
+                <td mat-cell *matCellDef="let row" [style.color]="row.name" style="text-align:center; margin:10%"> {{row.color}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Ubicación" class="table-th">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align:center"> Ubicación </th>
+                <td mat-cell *matCellDef="let row" [style.color]="row.progress" style="text-align:center; margin:10%"> {{row.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Fecha" class="table-th">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align:center"> Fecha </th>
+                <td mat-cell *matCellDef="let row" [style.color]="row.color" style="text-align:center; margin:10%"> {{row.date}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[10, 25, 100]" style="text-align:center; width: 100%;"></mat-paginator>
+    </div>
+</div>
+
+<!-- <mat-list>
+        <mat-list-item>
+            <p matLine>
+                <span>☺</span>
+                <span class="alto">Alto</span>
+                <span> CDMX</span>
+                <span> 15/12/2020</span>
+            </p>
+        </mat-list-item>
+        <mat-list-item>
+            <p matLine>
+                <span>☻</span>
+                <span class="medio">Medio</span>
+                <span> GDL</span>
+                <span> 20/12/2020 </span>
+            </p>
+        </mat-list-item>
+        <mat-list-item>
+            <p matLine>
+                <span>☺</span>
+                <span class="bajo">bajo</span>
+                <span> SLP</span>
+                <span> 20/12/2020</span>
+            </p>
+        </mat-list-item>
+        <mat-list-item>
+            <p matLine>
+                <span>☺</span>
+                <span class="alto">Alto</span>
+                <span> CDMX</span>
+                <span> 15/12/2020</span>
+            </p>
+        </mat-list-item>
+        <mat-list-item>
+            <p matLine>
+                <span>☻</span>
+                <span class="medio">Medio</span>
+                <span> GDL</span>
+                <span> 20/12/2020</span>
+            </p>
+        </mat-list-item>
+        <mat-list-item>
+            <p matLine>
+                <span>☺</span>
+                <span class="bajo">bajo</span>
+                <span> SLP</span>
+                <span> 20/12/2020</span>
+            </p>
+        </mat-list-item>
+        <mat-list-item>
+            <p matLine>
+                <span>☻</span>
+                <span class="medio">Medio</span>
+                <span> GDL</span>
+                <span> 20/12/2020</span>
+            </p>
+        </mat-list-item>
+        <mat-list-item>
+            <p matLine>
+                <span>☺</span>
+                <span class="bajo">bajo</span>
+                <span> SLP</span>
+                <span> 20/12/2020</span>
+            </p>
+        </mat-list-item>
+        <mat-list-item>
+            <p matLine>
+                <span>☺</span>
+                <span class="alto">Alto</span>
+                <span> CDMX</span>
+                <span> 15/12/2020</span>
+            </p>
+        </mat-list-item>
+        <mat-list-item>
+            <p matLine>
+                <span>☻</span>
+                <span class="medio">Medio</span>
+                <span> GDL</span>
+                <span> 20/12/2020</span>
+            </p>
+        </mat-list-item>
+        <mat-list-item>
+            <p matLine>
+                <span>☺</span>
+                <span class="bajo">bajo</span>
+                <span> SLP</span>
+                <span> 20/12/2020</span>
+            </p>
+        </mat-list-item>
+        <mat-list-item>
+            <p matLine>
+                <span>☺</span>
+                <span class="alto">Alto</span>
+                <span> CDMX</span>
+                <span> 15/12/2020</span>
+            </p>
+        </mat-list-item>
+        <mat-list-item>
+            <p matLine>
+                <span>☻</span>
+                <span class="medio">Medio</span>
+                <span> GDL</span>
+                <span> 20/12/2020</span>
+            </p>
+        </mat-list-item>
+        <mat-list-item>
+            <p matLine>
+                <span>☺</span>
+                <span class="bajo">bajo</span>
+                <span> SLP</span>
+                <span> 20/12/2020</span>
+            </p>
+        </mat-list-item>
+        <mat-list-item>
+            <p matLine>
+                <span>☻</span>
+                <span class="medio">Medio</span>
+                <span> GDL</span>
+                <span> 20/12/2020</span>
+            </p>
+        </mat-list-item>
+        <mat-list-item>
+            <p matLine>
+                <span>☺</span>
+                <span class="bajo">bajo</span>
+                <span> SLP</span>
+                <span> 20/12/2020</span>
+            </p>
+        </mat-list-item>
+    </mat-list> -->
